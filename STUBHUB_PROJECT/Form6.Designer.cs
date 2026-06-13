@@ -31,21 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.buttonCart = new System.Windows.Forms.Button();
+            this.Home = new System.Windows.Forms.Button();
+            this.buttonEvents = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,27 +87,107 @@
             this.panel1.Size = new System.Drawing.Size(710, 328);
             this.panel1.TabIndex = 14;
             // 
-            // radioButton1
+            // label5
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(20, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(21, 20);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(172, 282);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(145, 29);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Google Play";
             // 
-            // radioButton2
+            // label4
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(20, 88);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(21, 20);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(172, 218);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 29);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Alipay";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(172, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 29);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Paypal";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(173, 86);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(122, 29);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Apple Pay";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(172, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(212, 29);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Credit / Debit Card";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Gray;
+            this.panel6.Location = new System.Drawing.Point(59, 273);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(98, 42);
+            this.panel6.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Gray;
+            this.panel5.Location = new System.Drawing.Point(59, 212);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(98, 42);
+            this.panel5.TabIndex = 6;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Gray;
+            this.panel4.Location = new System.Drawing.Point(59, 146);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(98, 42);
+            this.panel4.TabIndex = 6;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Gray;
+            this.panel3.Location = new System.Drawing.Point(59, 78);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(98, 42);
+            this.panel3.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Gray;
+            this.panel2.Location = new System.Drawing.Point(59, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(98, 42);
+            this.panel2.TabIndex = 5;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton5.Location = new System.Drawing.Point(20, 285);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(21, 20);
+            this.radioButton5.TabIndex = 4;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
@@ -128,107 +211,67 @@
             this.radioButton4.TabStop = true;
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // radioButton2
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(20, 285);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(21, 20);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(20, 88);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(21, 20);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // radioButton1
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Location = new System.Drawing.Point(59, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(98, 42);
-            this.panel2.TabIndex = 5;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(20, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(21, 20);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // buttonCart
             // 
-            this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Location = new System.Drawing.Point(59, 78);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(98, 42);
-            this.panel3.TabIndex = 6;
+            this.buttonCart.BackColor = System.Drawing.Color.Transparent;
+            this.buttonCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCart.BackgroundImage")));
+            this.buttonCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCart.Location = new System.Drawing.Point(1224, 39);
+            this.buttonCart.Name = "buttonCart";
+            this.buttonCart.Size = new System.Drawing.Size(54, 42);
+            this.buttonCart.TabIndex = 15;
+            this.buttonCart.UseVisualStyleBackColor = false;
             // 
-            // panel4
+            // Home
             // 
-            this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Location = new System.Drawing.Point(59, 146);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(98, 42);
-            this.panel4.TabIndex = 6;
+            this.Home.BackColor = System.Drawing.Color.Transparent;
+            this.Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Home.ForeColor = System.Drawing.Color.Transparent;
+            this.Home.Location = new System.Drawing.Point(48, 41);
+            this.Home.Name = "Home";
+            this.Home.Size = new System.Drawing.Size(91, 42);
+            this.Home.TabIndex = 16;
+            this.Home.Text = "Home";
+            this.Home.UseVisualStyleBackColor = false;
             // 
-            // panel5
+            // buttonEvents
             // 
-            this.panel5.BackColor = System.Drawing.Color.Gray;
-            this.panel5.Location = new System.Drawing.Point(59, 212);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(98, 42);
-            this.panel5.TabIndex = 6;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Gray;
-            this.panel6.Location = new System.Drawing.Point(59, 273);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(98, 42);
-            this.panel6.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(172, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 29);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Credit / Debit Card";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(173, 86);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(122, 29);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Apple Pay";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(172, 152);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 29);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Paypal";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(172, 218);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 29);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Alipay";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(172, 282);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 29);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Google Play";
+            this.buttonEvents.BackColor = System.Drawing.Color.Transparent;
+            this.buttonEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEvents.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonEvents.Location = new System.Drawing.Point(145, 41);
+            this.buttonEvents.Name = "buttonEvents";
+            this.buttonEvents.Size = new System.Drawing.Size(102, 42);
+            this.buttonEvents.TabIndex = 17;
+            this.buttonEvents.Text = "Events";
+            this.buttonEvents.UseVisualStyleBackColor = false;
             // 
             // Form6
             // 
@@ -237,6 +280,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.Controls.Add(this.buttonEvents);
+            this.Controls.Add(this.Home);
+            this.Controls.Add(this.buttonCart);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
@@ -267,5 +313,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonCart;
+        private System.Windows.Forms.Button Home;
+        private System.Windows.Forms.Button buttonEvents;
     }
 }

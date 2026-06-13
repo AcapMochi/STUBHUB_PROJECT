@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,24 +13,85 @@ namespace STUBHUB_PROJECT
 {
     public partial class MainMenu : Form
     {
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
         LoginForm form = null;
-        int X = 239;
-        int Y = 245;
+
+        private void LoadEvents()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT Title FROM Events";
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, conn);
+
+                DataTable dt = new DataTable();
+                sqlDataAdapter.Fill(dt);
+                comboBoxEvents.DataSource = dt;
+                comboBoxEvents.DisplayMember = "Title";
+            }
+        }
+
         public MainMenu(LoginForm lf)
         {
             InitializeComponent();
             form = lf;
         }
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            LoadEvents();
+        }
 
         private void ChooseEventButton_Click(object sender, EventArgs e)
         {
-            Button buttonClone = new Button();
-            buttonClone.Parent = this;
-            buttonClone.Size = ChooseEventButton.Size;
-            buttonClone.Location = new Point(X, Y);
+            comboBoxEvents.Visible = !comboBoxEvents.Visible;
+        }
 
-            //Y += 40;
-            //buttonClone.Visible = !buttonClone.Visible;s
+        private void DateButton_Click(object sender, EventArgs e)
+        {
+            dateTimePickerTicket.Visible = !dateTimePickerTicket.Visible;
+        }
+
+        private void FindTicketButton_Click(object sender, EventArgs e)
+        {
+            if (comboBoxEvents.Text == null)
+            {
+                MessageBox.Show("Select an Event.");
+                return;
+            }
+
+            string index = null;
+            string title = comboBoxEvents.Text;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT EventID FROM Events WHERE Title = @Title";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Title", title);
+
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        index = result.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("SQL Error: Database Redundancy");
+                    }
+                    conn.Close();
+                }
+            }
+
+            EventForm form = new EventForm(this, index, title);
+            this.Hide();
+            form.ShowDialog();
+        }
+
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form.Close();
         }
     }
 }

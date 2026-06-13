@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace STUBHUB_PROJECT
 {
     public partial class RegisterForm : Form
     {
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
         LoginForm loginform = null;
         public RegisterForm(LoginForm lf)
         {
@@ -37,14 +39,52 @@ namespace STUBHUB_PROJECT
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            if (FullNameTextBox.Text.Length <= 0 || FullNameTextBox.Text == "Full name")
-                MessageBox.Show("Enter Your Full Name.");
-            if (AddressTextBox.Text.Length <= 0 || AddressTextBox.Text == "Address")
-                MessageBox.Show("Enter your Address.");
-            if (EmailTextBox.Text.Length <= 0 || EmailTextBox.Text == "Email")
+            if (TextBoxUsername.Text.Length <= 0 || TextBoxUsername.Text == "Username")
+                MessageBox.Show("Enter Your Username.");
+            if (TextBoxFullName.Text.Length <= 0 || TextBoxFullName.Text == "Full Name")
+                MessageBox.Show("Enter your Full Name.");
+            if (TextBoxEmail.Text.Length <= 0 || TextBoxEmail.Text == "Email")
                 MessageBox.Show("Enter your Email.");
-            if (PasswordTextBox.Text.Length <= 0 || PasswordTextBox.Text == "Password")
+            if (TextBoxPassword.Text.Length <= 0 || TextBoxPassword.Text == "Password")
                 MessageBox.Show("Enter your Password.");
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO [User] (Username, Password, Email, FullName, Role, CreatedAt) VALUES (@Username, @Password, @Email, @FullName, @Role, @CreatedAt)";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Username", TextBoxUsername.Text);
+                    cmd.Parameters.AddWithValue("@Password", TextBoxPassword.Text);
+                    cmd.Parameters.AddWithValue("@Email", TextBoxEmail.Text);
+                    cmd.Parameters.AddWithValue("@FullName", TextBoxFullName.Text);
+                    cmd.Parameters.AddWithValue("@Role", "User");
+
+                    DateTime dt = DateTime.Now;
+                    cmd.Parameters.AddWithValue("@CreatedAt", dt);
+
+                    try
+                    {
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Registered Successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The query ran, but 0 rows were inserted.");
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("SQL Error: " + ex.Message);
+                    }
+                    this.Close();
+                    loginform.Show();
+                }
+            }
         }
     }
 }

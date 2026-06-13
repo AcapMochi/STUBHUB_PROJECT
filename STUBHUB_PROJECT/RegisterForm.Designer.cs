@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.RegisterButton = new System.Windows.Forms.Button();
-            this.PasswordTextBox = new System.Windows.Forms.TextBox();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.FullNameTextBox = new System.Windows.Forms.TextBox();
+            this.TextBoxPassword = new System.Windows.Forms.TextBox();
+            this.TextBoxEmail = new System.Windows.Forms.TextBox();
+            this.TextBoxFullName = new System.Windows.Forms.TextBox();
+            this.TextBoxUsername = new System.Windows.Forms.TextBox();
             this.RegisterLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,10 +45,10 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.RegisterButton);
-            this.panel1.Controls.Add(this.PasswordTextBox);
-            this.panel1.Controls.Add(this.EmailTextBox);
-            this.panel1.Controls.Add(this.AddressTextBox);
-            this.panel1.Controls.Add(this.FullNameTextBox);
+            this.panel1.Controls.Add(this.TextBoxPassword);
+            this.panel1.Controls.Add(this.TextBoxEmail);
+            this.panel1.Controls.Add(this.TextBoxFullName);
+            this.panel1.Controls.Add(this.TextBoxUsername);
             this.panel1.Controls.Add(this.RegisterLabel);
             this.panel1.Location = new System.Drawing.Point(304, 138);
             this.panel1.Name = "panel1";
@@ -67,45 +67,45 @@
             this.RegisterButton.UseVisualStyleBackColor = false;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
-            // PasswordTextBox
+            // TextBoxPassword
             // 
-            this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTextBox.Location = new System.Drawing.Point(51, 388);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(627, 28);
-            this.PasswordTextBox.TabIndex = 8;
-            this.PasswordTextBox.Text = "Password";
+            this.TextBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxPassword.Location = new System.Drawing.Point(51, 388);
+            this.TextBoxPassword.Name = "TextBoxPassword";
+            this.TextBoxPassword.Size = new System.Drawing.Size(627, 28);
+            this.TextBoxPassword.TabIndex = 8;
+            this.TextBoxPassword.Text = "Password";
             // 
-            // EmailTextBox
+            // TextBoxEmail
             // 
-            this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.EmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTextBox.Location = new System.Drawing.Point(51, 305);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(627, 28);
-            this.EmailTextBox.TabIndex = 7;
-            this.EmailTextBox.Text = "Email";
+            this.TextBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxEmail.Location = new System.Drawing.Point(51, 305);
+            this.TextBoxEmail.Name = "TextBoxEmail";
+            this.TextBoxEmail.Size = new System.Drawing.Size(627, 28);
+            this.TextBoxEmail.TabIndex = 7;
+            this.TextBoxEmail.Text = "Email";
             // 
-            // AddressTextBox
+            // TextBoxFullName
             // 
-            this.AddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddressTextBox.Location = new System.Drawing.Point(51, 216);
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(627, 28);
-            this.AddressTextBox.TabIndex = 6;
-            this.AddressTextBox.Text = "Address";
+            this.TextBoxFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxFullName.Location = new System.Drawing.Point(51, 216);
+            this.TextBoxFullName.Name = "TextBoxFullName";
+            this.TextBoxFullName.Size = new System.Drawing.Size(627, 28);
+            this.TextBoxFullName.TabIndex = 6;
+            this.TextBoxFullName.Text = "Full Name";
             // 
-            // FullNameTextBox
+            // TextBoxUsername
             // 
-            this.FullNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FullNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FullNameTextBox.Location = new System.Drawing.Point(51, 132);
-            this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(627, 28);
-            this.FullNameTextBox.TabIndex = 5;
-            this.FullNameTextBox.Text = "Full name";
+            this.TextBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxUsername.Location = new System.Drawing.Point(51, 132);
+            this.TextBoxUsername.Name = "TextBoxUsername";
+            this.TextBoxUsername.Size = new System.Drawing.Size(627, 28);
+            this.TextBoxUsername.TabIndex = 5;
+            this.TextBoxUsername.Text = "Username";
             // 
             // RegisterLabel
             // 
@@ -130,7 +130,7 @@
             this.ClientSize = new System.Drawing.Size(1339, 817);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
@@ -144,10 +144,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label RegisterLabel;
-        private System.Windows.Forms.TextBox PasswordTextBox;
-        private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.TextBox FullNameTextBox;
+        private System.Windows.Forms.TextBox TextBoxPassword;
+        private System.Windows.Forms.TextBox TextBoxEmail;
+        private System.Windows.Forms.TextBox TextBoxFullName;
+        private System.Windows.Forms.TextBox TextBoxUsername;
         private System.Windows.Forms.Button RegisterButton;
     }
 }

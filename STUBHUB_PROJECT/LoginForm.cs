@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace STUBHUB_PROJECT
 {
     public partial class LoginForm : Form
     {
+
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
         public LoginForm()
         {
             InitializeComponent();
@@ -39,16 +42,37 @@ namespace STUBHUB_PROJECT
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (UsernameTextBox.Text.Length > 0 && PasswordTextBox.Text.Length > 0)
+            if (TextBoxUsername.Text.Length > 0 && TextBoxPassword.Text.Length > 0)
             {
-                MessageBox.Show("Bole");
-                MainMenu form = new MainMenu(this);
-                this.Hide();
-                form.ShowDialog();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT Username, Password FROM [User] WHERE Username=@Username AND Password=@Password";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", TextBoxUsername.Text);
+                        cmd.Parameters.AddWithValue("@Password", TextBoxPassword.Text);
+
+                        conn.Open();
+                        var result = cmd.ExecuteReader();
+                        if (result.HasRows)
+                        {
+                            MessageBox.Show("Valid Login, Welcome back!");
+                            MainMenu form = new MainMenu(this);
+                            this.Hide();
+                            form.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Login, try again.");
+                        }
+                        conn.Close();
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Tkle");
+                MessageBox.Show("Enter your Username and Password!");
             }
         }
 
@@ -57,6 +81,11 @@ namespace STUBHUB_PROJECT
             RegisterForm form = new RegisterForm(this);
             form.Show();
             this.Hide();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
