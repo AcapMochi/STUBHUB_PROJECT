@@ -57,6 +57,10 @@ namespace STUBHUB_PROJECT
                         var result = cmd.ExecuteReader();
                         if (result.HasRows)
                         {
+                            TextBoxUsername.Clear();
+                            TextBoxPassword.Clear();
+
+
                             MessageBox.Show("Valid Login, Welcome back!");
                             MainMenu form = new MainMenu(this);
                             this.Hide();

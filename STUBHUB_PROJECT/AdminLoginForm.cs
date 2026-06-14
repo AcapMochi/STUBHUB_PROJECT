@@ -22,13 +22,17 @@ namespace STUBHUB_PROJECT
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text;
+            string username = textBoxUsername.Text.Trim();
+            string password = textBoxPassword.Text;
 
             int userID = ValidateCredentials(username, password);
 
             if (userID != 0)
             {
+                textBoxUsername.Clear();
+                textBoxPassword.Clear();
+
+
                 MessageBox.Show("Valid Login, Welcome back!");
                 FormAdminDashboard form = new FormAdminDashboard(userID, this);
                 this.Hide();
@@ -82,6 +86,12 @@ namespace STUBHUB_PROJECT
         {
             if (e.CloseReason == CloseReason.ApplicationExitCall)
              Application.Exit();
+        }
+
+        private void AdminLoginForm_Load(object sender, EventArgs e)
+        {
+            textBoxUsername.Text = "";
+            textBoxPassword.Text = "";
         }
     }
 }

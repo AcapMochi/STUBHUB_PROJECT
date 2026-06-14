@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,9 @@ namespace STUBHUB_PROJECT
     public partial class MainMenu : Form
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
+        LoginForm lf = null;
 
+        private bool isLoggingOut = false;
         private void LoadEvents()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -33,6 +36,7 @@ namespace STUBHUB_PROJECT
         public MainMenu(LoginForm lf)
         {
             InitializeComponent();
+            this.lf = lf;
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
@@ -89,7 +93,16 @@ namespace STUBHUB_PROJECT
 
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (!isLoggingOut && e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            isLoggingOut = true;
+
+            lf.Show();
+            this.Close();
         }
     }
 }

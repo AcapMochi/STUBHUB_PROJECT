@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddEvent.Designer.cs">
+      <DependentUpon>AdminAddEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,12 @@
     </Compile>
     <Compile Include="AdminManageEvents.Designer.cs">
       <DependentUpon>AdminManageEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManageSubEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManageSubEvent.Designer.cs">
+      <DependentUpon>AdminManageSubEvent.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminProfileForm.cs">
       <SubType>Form</SubType>
@@ -104,6 +116,12 @@
     </Compile>
     <Compile Include="AdminUserAccountsForm.Designer.cs">
       <DependentUpon>AdminUserAccountsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManageTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManageTickets.Designer.cs">
+      <DependentUpon>AdminManageTickets.cs</DependentUpon>
     </Compile>
     <Compile Include="EventTicketForm.cs">
       <SubType>Form</SubType>
@@ -160,6 +178,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminAddEvent.resx">
+      <DependentUpon>AdminAddEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminChangePassword.resx">
       <DependentUpon>AdminChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminManageEvents.resx">
       <DependentUpon>AdminManageEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManageSubEvent.resx">
+      <DependentUpon>AdminManageSubEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminProfileForm.resx">
       <DependentUpon>AdminProfileForm.cs</DependentUpon>
@@ -180,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUserAccountsForm.resx">
       <DependentUpon>AdminUserAccountsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManageTickets.resx">
+      <DependentUpon>AdminManageTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventTicketForm.resx">
       <DependentUpon>EventTicketForm.cs</DependentUpon>
@@ -244,6 +271,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Clones\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

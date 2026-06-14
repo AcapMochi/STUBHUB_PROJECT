@@ -47,8 +47,6 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.buttonCart = new System.Windows.Forms.Button();
-            this.Home = new System.Windows.Forms.Button();
-            this.buttonEvents = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -245,34 +243,6 @@
             this.buttonCart.TabIndex = 15;
             this.buttonCart.UseVisualStyleBackColor = false;
             // 
-            // Home
-            // 
-            this.Home.BackColor = System.Drawing.Color.Transparent;
-            this.Home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Home.ForeColor = System.Drawing.Color.Transparent;
-            this.Home.Location = new System.Drawing.Point(48, 41);
-            this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(91, 42);
-            this.Home.TabIndex = 16;
-            this.Home.Text = "Home";
-            this.Home.UseVisualStyleBackColor = false;
-            // 
-            // buttonEvents
-            // 
-            this.buttonEvents.BackColor = System.Drawing.Color.Transparent;
-            this.buttonEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEvents.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonEvents.Location = new System.Drawing.Point(145, 41);
-            this.buttonEvents.Name = "buttonEvents";
-            this.buttonEvents.Size = new System.Drawing.Size(102, 42);
-            this.buttonEvents.TabIndex = 17;
-            this.buttonEvents.Text = "Events";
-            this.buttonEvents.UseVisualStyleBackColor = false;
-            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -280,8 +250,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
-            this.Controls.Add(this.buttonEvents);
-            this.Controls.Add(this.Home);
             this.Controls.Add(this.buttonCart);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
@@ -314,7 +282,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonCart;
-        private System.Windows.Forms.Button Home;
-        private System.Windows.Forms.Button buttonEvents;
     }
 }

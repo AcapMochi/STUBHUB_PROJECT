@@ -15,6 +15,7 @@ namespace STUBHUB_PROJECT
     {
         private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True;";
         int userID;
+        private bool isLoggingOut = false;
 
         AdminLoginForm loginForm = null;
         public FormAdminDashboard(int id, AdminLoginForm loginForm)
@@ -122,51 +123,23 @@ namespace STUBHUB_PROJECT
             AdminManageEvents form = new AdminManageEvents();
             form.ShowDialog();
         }
-
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-            if (dgvEventsOverview.CurrentRow != null)
-            {
-                string selectedSubEventID = dgvEventsOverview.CurrentRow.Cells["ID"].Value.ToString();
-
-                DialogResult confirm = MessageBox.Show($"Are you sure you want to cancel Sub-Event ID {selectedSubEventID}?",
-                                                       "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (confirm == DialogResult.Yes)
-                {
-                    CancelEventInDatabase(selectedSubEventID);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select an event row from the dashboard list to cancel.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            if (dgvEventsOverview.CurrentRow != null)
-            {
-                string selectedSubEventID = dgvEventsOverview.CurrentRow.Cells["ID"].Value.ToString();
-
-                MessageBox.Show($"Opening Edit System for Sub-Event ID: {selectedSubEventID}", "Edit Event");
-            }
-            else
-            {
-                MessageBox.Show("Please select an event row from the dashboard list first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void FormAdminDashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
+            if (!isLoggingOut && e.CloseReason == CloseReason.UserClosing)
                 Application.Exit();
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            isLoggingOut = true;
+
             loginForm.Show();
+            this.Close();
+        }
+
+        private void FormAdminDashboard_Activated(object sender, EventArgs e)
+        {
+            LoadEventsOverview();
         }
     }
 }

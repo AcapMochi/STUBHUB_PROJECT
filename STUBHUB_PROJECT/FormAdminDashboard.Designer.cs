@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdminDashboard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonManageVenues = new System.Windows.Forms.Button();
+            this.buttonLogOut = new System.Windows.Forms.Button();
             this.buttonAdminProfile = new System.Windows.Forms.Button();
             this.buttonUserAccounts = new System.Windows.Forms.Button();
             this.buttonTandB = new System.Windows.Forms.Button();
@@ -37,15 +39,13 @@
             this.buttonManageEvents = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEventsOverview = new System.Windows.Forms.DataGridView();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonLogOut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventsOverview)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonManageVenues);
             this.panel1.Controls.Add(this.buttonLogOut);
             this.panel1.Controls.Add(this.buttonAdminProfile);
             this.panel1.Controls.Add(this.buttonUserAccounts);
@@ -58,6 +58,35 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(415, 817);
             this.panel1.TabIndex = 0;
+            // 
+            // buttonManageVenues
+            // 
+            this.buttonManageVenues.BackColor = System.Drawing.Color.Navy;
+            this.buttonManageVenues.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonManageVenues.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonManageVenues.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonManageVenues.Location = new System.Drawing.Point(38, 155);
+            this.buttonManageVenues.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonManageVenues.Name = "buttonManageVenues";
+            this.buttonManageVenues.Size = new System.Drawing.Size(307, 74);
+            this.buttonManageVenues.TabIndex = 6;
+            this.buttonManageVenues.Text = "Manage Venues";
+            this.buttonManageVenues.UseVisualStyleBackColor = false;
+            // 
+            // buttonLogOut
+            // 
+            this.buttonLogOut.BackColor = System.Drawing.Color.Navy;
+            this.buttonLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonLogOut.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogOut.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonLogOut.Location = new System.Drawing.Point(68, 722);
+            this.buttonLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonLogOut.Name = "buttonLogOut";
+            this.buttonLogOut.Size = new System.Drawing.Size(234, 61);
+            this.buttonLogOut.TabIndex = 5;
+            this.buttonLogOut.Text = "Log Out";
+            this.buttonLogOut.UseVisualStyleBackColor = false;
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // buttonAdminProfile
             // 
@@ -125,7 +154,7 @@
             this.buttonManageEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonManageEvents.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonManageEvents.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonManageEvents.Location = new System.Drawing.Point(38, 151);
+            this.buttonManageEvents.Location = new System.Drawing.Point(38, 62);
             this.buttonManageEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonManageEvents.Name = "buttonManageEvents";
             this.buttonManageEvents.Size = new System.Drawing.Size(307, 74);
@@ -156,56 +185,9 @@
             this.dgvEventsOverview.Name = "dgvEventsOverview";
             this.dgvEventsOverview.RowHeadersWidth = 51;
             this.dgvEventsOverview.RowTemplate.Height = 24;
-            this.dgvEventsOverview.Size = new System.Drawing.Size(875, 242);
+            this.dgvEventsOverview.Size = new System.Drawing.Size(863, 465);
             this.dgvEventsOverview.TabIndex = 2;
             this.dgvEventsOverview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEventsOverview_CellContentClick);
-            // 
-            // buttonEdit
-            // 
-            this.buttonEdit.BackColor = System.Drawing.Color.Navy;
-            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEdit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEdit.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonEdit.Location = new System.Drawing.Point(718, 569);
-            this.buttonEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(133, 55);
-            this.buttonEdit.TabIndex = 3;
-            this.buttonEdit.Text = "Edit";
-            this.buttonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonEdit.UseVisualStyleBackColor = false;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Navy;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDelete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonDelete.Location = new System.Drawing.Point(909, 569);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(140, 55);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonLogOut
-            // 
-            this.buttonLogOut.BackColor = System.Drawing.Color.Navy;
-            this.buttonLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonLogOut.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogOut.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonLogOut.Location = new System.Drawing.Point(68, 722);
-            this.buttonLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Size = new System.Drawing.Size(234, 61);
-            this.buttonLogOut.TabIndex = 5;
-            this.buttonLogOut.Text = "Log Out";
-            this.buttonLogOut.UseVisualStyleBackColor = false;
-            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // FormAdminDashboard
             // 
@@ -215,17 +197,17 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.dgvEventsOverview);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdminDashboard";
+            this.Activated += new System.EventHandler(this.FormAdminDashboard_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdminDashboard_FormClosed);
             this.Load += new System.EventHandler(this.FormAdminDashboard_Load);
             this.panel1.ResumeLayout(false);
@@ -238,15 +220,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonManageEvents;
         private System.Windows.Forms.Button buttonAdminProfile;
         private System.Windows.Forms.Button buttonUserAccounts;
         private System.Windows.Forms.Button buttonTandB;
         private System.Windows.Forms.Button buttonSandP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEventsOverview;
-        private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonLogOut;
+        private System.Windows.Forms.Button buttonManageEvents;
+        private System.Windows.Forms.Button buttonManageVenues;
     }
 }

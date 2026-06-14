@@ -38,8 +38,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonCart = new System.Windows.Forms.Button();
-            this.buttonHome = new System.Windows.Forms.Button();
-            this.buttonEvents = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -137,34 +135,6 @@
             this.buttonCart.TabIndex = 18;
             this.buttonCart.UseVisualStyleBackColor = false;
             // 
-            // buttonHome
-            // 
-            this.buttonHome.BackColor = System.Drawing.Color.Transparent;
-            this.buttonHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHome.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonHome.Location = new System.Drawing.Point(48, 41);
-            this.buttonHome.Name = "buttonHome";
-            this.buttonHome.Size = new System.Drawing.Size(91, 42);
-            this.buttonHome.TabIndex = 19;
-            this.buttonHome.Text = "Home";
-            this.buttonHome.UseVisualStyleBackColor = false;
-            // 
-            // buttonEvents
-            // 
-            this.buttonEvents.BackColor = System.Drawing.Color.Transparent;
-            this.buttonEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEvents.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonEvents.Location = new System.Drawing.Point(145, 41);
-            this.buttonEvents.Name = "buttonEvents";
-            this.buttonEvents.Size = new System.Drawing.Size(102, 42);
-            this.buttonEvents.TabIndex = 20;
-            this.buttonEvents.Text = "Events";
-            this.buttonEvents.UseVisualStyleBackColor = false;
-            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -172,8 +142,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
-            this.Controls.Add(this.buttonEvents);
-            this.Controls.Add(this.buttonHome);
             this.Controls.Add(this.buttonCart);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -202,7 +170,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonCart;
-        private System.Windows.Forms.Button buttonHome;
-        private System.Windows.Forms.Button buttonEvents;
     }
 }

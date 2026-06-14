@@ -114,11 +114,11 @@ namespace STUBHUB_PROJECT
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-            SELECT e.EventID, e.Title, se.SubEventID, se.SubEventTitle, se.EventDateTime, v.VenueName, v.City, v.Country 
-            FROM Events e 
-            INNER JOIN SubEvents se ON e.EventID = se.EventID 
-            INNER JOIN Venues v ON se.VenueID = v.VenueID 
-            WHERE e.EventID = @EventID";
+    SELECT e.EventID, e.Title, e.ImageData, se.SubEventID, se.SubEventTitle, se.EventDateTime, v.VenueName, v.City, v.Country 
+    FROM Events e 
+    INNER JOIN SubEvents se ON e.EventID = se.EventID 
+    INNER JOIN Venues v ON se.VenueID = v.VenueID 
+    WHERE e.EventID = @EventID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -132,6 +132,21 @@ namespace STUBHUB_PROJECT
                         if (rowsFound > 0)
                         {
                             flowLayoutPanel1.Controls.Clear();
+
+                            if (dt.Rows[0]["ImageData"] != DBNull.Value)
+                            {
+                                byte[] imageBytes = (byte[])dt.Rows[0]["ImageData"];
+
+                                System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes);
+                                flowLayoutPanel1.BackgroundImage = Image.FromStream(ms);
+
+                                flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
+                            }
+                            else
+                            {
+                                flowLayoutPanel1.BackgroundImage = null;
+                            }
+
                             foreach (DataRow row in dt.Rows)
                             {
                                 string id = row["EventID"].ToString();

@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventForm));
             this.buttonCart = new System.Windows.Forms.Button();
             this.labelEvent = new System.Windows.Forms.Label();
-            this.buttonHome = new System.Windows.Forms.Button();
-            this.buttonEvents = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
@@ -61,34 +59,6 @@
             this.labelEvent.Text = "Upcoming Foot Ball Events";
             this.labelEvent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonHome
-            // 
-            this.buttonHome.BackColor = System.Drawing.Color.Transparent;
-            this.buttonHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHome.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonHome.Location = new System.Drawing.Point(48, 41);
-            this.buttonHome.Name = "buttonHome";
-            this.buttonHome.Size = new System.Drawing.Size(91, 42);
-            this.buttonHome.TabIndex = 19;
-            this.buttonHome.Text = "Home";
-            this.buttonHome.UseVisualStyleBackColor = false;
-            // 
-            // buttonEvents
-            // 
-            this.buttonEvents.BackColor = System.Drawing.Color.Transparent;
-            this.buttonEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEvents.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonEvents.Location = new System.Drawing.Point(145, 41);
-            this.buttonEvents.Name = "buttonEvents";
-            this.buttonEvents.Size = new System.Drawing.Size(102, 42);
-            this.buttonEvents.TabIndex = 20;
-            this.buttonEvents.Text = "Events";
-            this.buttonEvents.UseVisualStyleBackColor = false;
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -111,8 +81,6 @@
             this.ClientSize = new System.Drawing.Size(1339, 817);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.labelEvent);
-            this.Controls.Add(this.buttonEvents);
-            this.Controls.Add(this.buttonHome);
             this.Controls.Add(this.buttonCart);
             this.DoubleBuffered = true;
             this.Name = "EventForm";
@@ -128,8 +96,6 @@
         #endregion
         private System.Windows.Forms.Button buttonCart;
         private System.Windows.Forms.Label labelEvent;
-        private System.Windows.Forms.Button buttonHome;
-        private System.Windows.Forms.Button buttonEvents;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
