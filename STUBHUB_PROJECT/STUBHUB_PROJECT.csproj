@@ -63,17 +63,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminChangePassword.Designer.cs">
+      <DependentUpon>AdminChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLoginForm.Designer.cs">
+      <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManageEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManageEvents.Designer.cs">
+      <DependentUpon>AdminManageEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminProfileForm.Designer.cs">
+      <DependentUpon>AdminProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSeatingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSeatingForm.Designer.cs">
+      <DependentUpon>AdminSeatingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTransactionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminTransactionsForm.Designer.cs">
+      <DependentUpon>AdminTransactionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserAccountsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUserAccountsForm.Designer.cs">
+      <DependentUpon>AdminUserAccountsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventTicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EventTicketForm.Designer.cs">
       <DependentUpon>EventTicketForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminDashboard.Designer.cs">
+      <DependentUpon>FormAdminDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
@@ -107,8 +160,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminChangePassword.resx">
+      <DependentUpon>AdminChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLoginForm.resx">
+      <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManageEvents.resx">
+      <DependentUpon>AdminManageEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminProfileForm.resx">
+      <DependentUpon>AdminProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSeatingForm.resx">
+      <DependentUpon>AdminSeatingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminTransactionsForm.resx">
+      <DependentUpon>AdminTransactionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUserAccountsForm.resx">
+      <DependentUpon>AdminUserAccountsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventTicketForm.resx">
       <DependentUpon>EventTicketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminDashboard.resx">
+      <DependentUpon>FormAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -130,13 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -171,5 +244,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

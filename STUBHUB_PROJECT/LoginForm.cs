@@ -22,12 +22,12 @@ namespace STUBHUB_PROJECT
 
         private void label1_MouseHover(object sender, EventArgs e)
         {
-            label1.ForeColor = System.Drawing.Color.CornflowerBlue;
+            labelAdmin.ForeColor = System.Drawing.Color.CornflowerBlue;
         }
 
         private void label1_MouseLeave(object sender, EventArgs e)
         {
-            label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            labelAdmin.ForeColor = System.Drawing.Color.MidnightBlue;
         }
 
         private void RegisterLabel_MouseHover(object sender, EventArgs e)
@@ -83,9 +83,11 @@ namespace STUBHUB_PROJECT
             this.Hide();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void labelAdmin_Click(object sender, EventArgs e)
         {
-
+            AdminLoginForm form = new AdminLoginForm(this);
+            this.Hide();
+            form.ShowDialog();
         }
     }
 }

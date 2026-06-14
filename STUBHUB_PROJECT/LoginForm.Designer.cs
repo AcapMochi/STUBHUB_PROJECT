@@ -36,7 +36,7 @@
             this.TextBoxPassword = new System.Windows.Forms.TextBox();
             this.TextBoxUsername = new System.Windows.Forms.TextBox();
             this.RegisterLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelAdmin = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panel2.SuspendLayout();
@@ -123,18 +123,19 @@
             this.RegisterLabel.MouseLeave += new System.EventHandler(this.RegisterLabel_MouseLeave);
             this.RegisterLabel.MouseHover += new System.EventHandler(this.RegisterLabel_MouseHover);
             // 
-            // label1
+            // labelAdmin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(949, 729);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "log in as admin";
-            this.label1.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
-            this.label1.MouseHover += new System.EventHandler(this.label1_MouseHover);
+            this.labelAdmin.AutoSize = true;
+            this.labelAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdmin.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.labelAdmin.Location = new System.Drawing.Point(949, 729);
+            this.labelAdmin.Name = "labelAdmin";
+            this.labelAdmin.Size = new System.Drawing.Size(175, 29);
+            this.labelAdmin.TabIndex = 3;
+            this.labelAdmin.Text = "log in as admin";
+            this.labelAdmin.Click += new System.EventHandler(this.labelAdmin_Click);
+            this.labelAdmin.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
+            this.labelAdmin.MouseHover += new System.EventHandler(this.label1_MouseHover);
             // 
             // LoginForm
             // 
@@ -143,7 +144,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelAdmin);
             this.Controls.Add(this.RegisterLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -151,7 +152,6 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -170,7 +170,7 @@
         private System.Windows.Forms.TextBox TextBoxPassword;
         private System.Windows.Forms.TextBox TextBoxUsername;
         private System.Windows.Forms.Label RegisterLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAdmin;
     }
 }
 

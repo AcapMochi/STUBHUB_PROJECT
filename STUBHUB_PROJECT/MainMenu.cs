@@ -14,7 +14,6 @@ namespace STUBHUB_PROJECT
     public partial class MainMenu : Form
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
-        LoginForm form = null;
 
         private void LoadEvents()
         {
@@ -34,7 +33,6 @@ namespace STUBHUB_PROJECT
         public MainMenu(LoginForm lf)
         {
             InitializeComponent();
-            form = lf;
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
@@ -91,7 +89,7 @@ namespace STUBHUB_PROJECT
 
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            form.Close();
+            Application.Exit();
         }
     }
 }

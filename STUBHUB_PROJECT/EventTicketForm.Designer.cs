@@ -37,14 +37,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelSubEventVenue = new System.Windows.Forms.Label();
+            this.labelSubEventDate = new System.Windows.Forms.Label();
+            this.labelSubEventTitle = new System.Windows.Forms.Label();
             this.labelEventTitle = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonEvents = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
             this.buttonCart = new System.Windows.Forms.Button();
-            this.labelSubEventTitle = new System.Windows.Forms.Label();
-            this.labelSubEventDate = new System.Windows.Forms.Label();
-            this.labelSubEventVenue = new System.Windows.Forms.Label();
             this.labelEvent = new System.Windows.Forms.Label();
             this.flowLayoutPanelTickets.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -147,6 +147,36 @@
             this.panel1.Size = new System.Drawing.Size(1230, 127);
             this.panel1.TabIndex = 30;
             // 
+            // labelSubEventVenue
+            // 
+            this.labelSubEventVenue.AutoSize = true;
+            this.labelSubEventVenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubEventVenue.Location = new System.Drawing.Point(355, 74);
+            this.labelSubEventVenue.Name = "labelSubEventVenue";
+            this.labelSubEventVenue.Size = new System.Drawing.Size(314, 20);
+            this.labelSubEventVenue.TabIndex = 4;
+            this.labelSubEventVenue.Text = "Turf Moor Stadium,Burnley,United Kingdom";
+            // 
+            // labelSubEventDate
+            // 
+            this.labelSubEventDate.AutoSize = true;
+            this.labelSubEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubEventDate.Location = new System.Drawing.Point(355, 54);
+            this.labelSubEventDate.Name = "labelSubEventDate";
+            this.labelSubEventDate.Size = new System.Drawing.Size(288, 20);
+            this.labelSubEventDate.TabIndex = 3;
+            this.labelSubEventDate.Text = "Saturday, 27 September 2026, 8:30 PM";
+            // 
+            // labelSubEventTitle
+            // 
+            this.labelSubEventTitle.AutoSize = true;
+            this.labelSubEventTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubEventTitle.Location = new System.Drawing.Point(353, 29);
+            this.labelSubEventTitle.Name = "labelSubEventTitle";
+            this.labelSubEventTitle.Size = new System.Drawing.Size(201, 25);
+            this.labelSubEventTitle.TabIndex = 2;
+            this.labelSubEventTitle.Text = "Burnley VS Arsenal";
+            // 
             // labelEventTitle
             // 
             this.labelEventTitle.AutoSize = true;
@@ -205,36 +235,6 @@
             this.buttonCart.Size = new System.Drawing.Size(54, 42);
             this.buttonCart.TabIndex = 26;
             this.buttonCart.UseVisualStyleBackColor = false;
-            // 
-            // labelSubEventTitle
-            // 
-            this.labelSubEventTitle.AutoSize = true;
-            this.labelSubEventTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubEventTitle.Location = new System.Drawing.Point(353, 29);
-            this.labelSubEventTitle.Name = "labelSubEventTitle";
-            this.labelSubEventTitle.Size = new System.Drawing.Size(201, 25);
-            this.labelSubEventTitle.TabIndex = 2;
-            this.labelSubEventTitle.Text = "Burnley VS Arsenal";
-            // 
-            // labelSubEventDate
-            // 
-            this.labelSubEventDate.AutoSize = true;
-            this.labelSubEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubEventDate.Location = new System.Drawing.Point(355, 54);
-            this.labelSubEventDate.Name = "labelSubEventDate";
-            this.labelSubEventDate.Size = new System.Drawing.Size(288, 20);
-            this.labelSubEventDate.TabIndex = 3;
-            this.labelSubEventDate.Text = "Saturday, 27 September 2026, 8:30 PM";
-            // 
-            // labelSubEventVenue
-            // 
-            this.labelSubEventVenue.AutoSize = true;
-            this.labelSubEventVenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubEventVenue.Location = new System.Drawing.Point(355, 74);
-            this.labelSubEventVenue.Name = "labelSubEventVenue";
-            this.labelSubEventVenue.Size = new System.Drawing.Size(314, 20);
-            this.labelSubEventVenue.TabIndex = 4;
-            this.labelSubEventVenue.Text = "Turf Moor Stadium,Burnley,United Kingdom";
             // 
             // labelEvent
             // 
