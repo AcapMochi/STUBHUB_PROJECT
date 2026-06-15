@@ -46,7 +46,6 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.buttonCart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -231,18 +230,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // buttonCart
-            // 
-            this.buttonCart.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCart.BackgroundImage")));
-            this.buttonCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCart.Location = new System.Drawing.Point(1224, 39);
-            this.buttonCart.Name = "buttonCart";
-            this.buttonCart.Size = new System.Drawing.Size(54, 42);
-            this.buttonCart.TabIndex = 15;
-            this.buttonCart.UseVisualStyleBackColor = false;
-            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -250,7 +237,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
-            this.Controls.Add(this.buttonCart);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
@@ -281,6 +267,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonCart;
     }
 }

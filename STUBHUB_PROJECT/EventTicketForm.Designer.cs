@@ -44,6 +44,7 @@
             this.pictureBoxSubEvent = new System.Windows.Forms.PictureBox();
             this.buttonCart = new System.Windows.Forms.Button();
             this.labelEvent = new System.Windows.Forms.Label();
+            this.labelTicketCounter = new System.Windows.Forms.Label();
             this.flowLayoutPanelTickets.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVenue)).BeginInit();
@@ -219,6 +220,18 @@
             this.labelEvent.Text = "World Cup 2026 Tickets";
             this.labelEvent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // labelTicketCounter
+            // 
+            this.labelTicketCounter.AutoSize = true;
+            this.labelTicketCounter.BackColor = System.Drawing.Color.Transparent;
+            this.labelTicketCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTicketCounter.ForeColor = System.Drawing.Color.White;
+            this.labelTicketCounter.Location = new System.Drawing.Point(1188, 49);
+            this.labelTicketCounter.Name = "labelTicketCounter";
+            this.labelTicketCounter.Size = new System.Drawing.Size(30, 32);
+            this.labelTicketCounter.TabIndex = 33;
+            this.labelTicketCounter.Text = "0";
+            // 
             // EventTicketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -226,6 +239,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 954);
+            this.Controls.Add(this.labelTicketCounter);
             this.Controls.Add(this.flowLayoutPanelTickets);
             this.Controls.Add(this.pictureBoxVenue);
             this.Controls.Add(this.panel1);
@@ -265,5 +279,6 @@
         private System.Windows.Forms.Label labelSubEventDate;
         private System.Windows.Forms.Label labelSubEventTitle;
         private System.Windows.Forms.Label labelEvent;
+        private System.Windows.Forms.Label labelTicketCounter;
     }
 }

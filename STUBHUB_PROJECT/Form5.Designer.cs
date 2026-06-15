@@ -37,7 +37,6 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.buttonCart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -123,18 +122,6 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // buttonCart
-            // 
-            this.buttonCart.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCart.BackgroundImage")));
-            this.buttonCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCart.Location = new System.Drawing.Point(1224, 39);
-            this.buttonCart.Name = "buttonCart";
-            this.buttonCart.Size = new System.Drawing.Size(54, 42);
-            this.buttonCart.TabIndex = 18;
-            this.buttonCart.UseVisualStyleBackColor = false;
-            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -142,7 +129,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
-            this.Controls.Add(this.buttonCart);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox6);
@@ -169,6 +155,5 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button buttonCart;
     }
 }

@@ -15,6 +15,7 @@ namespace STUBHUB_PROJECT
     {
 
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
+        private int userID;
         public LoginForm()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace STUBHUB_PROJECT
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT Username, Password FROM [User] WHERE Username=@Username AND Password=@Password";
+                    string query = "SELECT UserID, Username, Password FROM [User] WHERE Username=@Username AND Password=@Password";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -57,12 +58,16 @@ namespace STUBHUB_PROJECT
                         var result = cmd.ExecuteReader();
                         if (result.HasRows)
                         {
+                            result.Read();
+
+                            userID = Convert.ToInt32(result["UserID"]);
+
                             TextBoxUsername.Clear();
                             TextBoxPassword.Clear();
-
+                            
 
                             MessageBox.Show("Valid Login, Welcome back!");
-                            MainMenu form = new MainMenu(this);
+                            MainMenu form = new MainMenu(this, userID);
                             this.Hide();
                             form.ShowDialog();
                         }

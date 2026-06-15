@@ -19,6 +19,8 @@ namespace STUBHUB_PROJECT
         string SelectedItem = null;
         string Title = null;
 
+        private int userID;
+
         public class Event
         {
             public Panel panelEvent;
@@ -28,6 +30,7 @@ namespace STUBHUB_PROJECT
             public Label labelVenue;
             public Button buttonSeeTickets;
 
+            private int userID;
             private string eventID;
             private string subEventID;
             private string eventTitle;
@@ -35,8 +38,10 @@ namespace STUBHUB_PROJECT
             private string subEventDate;
             private string venueName;
 
-            public Panel newEventPanel(string id, string subid, string title, string subTitle, string date, string venue)
+            public Panel newEventPanel(string id, string subid, string title, string subTitle, string date, string venue, int userid)
             {
+                userID = userid;
+
                 eventID = id;
                 subEventID = subid;
 
@@ -59,7 +64,7 @@ namespace STUBHUB_PROJECT
                 subEventTitle = subTitle;
 
                 labelSubEventTitle.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
-                labelSubEventTitle.Location= new Point(17, 27);
+                labelSubEventTitle.Location = new Point(17, 27);
                 labelSubEventTitle.AutoSize = true;
 
                 labelEventDate = new Label();
@@ -95,26 +100,52 @@ namespace STUBHUB_PROJECT
 
             private void ButtonSeeTickets_Click(object sender, EventArgs e)
             {
-                EventTicketForm form = new EventTicketForm(subEventID, eventTitle, subEventTitle, subEventDate, venueName);
+                EventTicketForm form = new EventTicketForm(subEventID, eventTitle, subEventTitle, subEventDate, venueName, userID);
                 form.ShowDialog();
             }
         }
-
-        public EventForm(MainMenu mmform, string SI, string T)
+        public EventForm(MainMenu mmform, string SI, string T, int userID)
         {
             InitializeComponent();
             form = mmform;
             SelectedItem = SI;
             Title = T;
+            this.userID = userID;
         }
-        private void EventForm_Load(object sender, EventArgs e)
+        private void LoadTicketCounter()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ISNULL(SUM(oi.Quantity), 0) FROM OrderItems oi INNER JOIN Orders o ON oi.OrderID = o.OrderID WHERE o.UserID = @UserID AND o.OrderStatus = 'Pending'";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+
+                    try
+                    {
+                        con.Open();
+                        int ticketCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        labelTicketCounter.Text = ticketCount.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading ticket count: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        labelTicketCounter.Text = "0";
+                    }
+                }
+            }
+        }
+
+        private void LoadEvents()
         {
             labelEvent.Text = "Upcoming " + Title + " Events";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-    SELECT e.EventID, e.Title, e.ImageData, se.SubEventID, se.SubEventTitle, se.EventDateTime, v.VenueName, v.City, v.Country 
+    SELECT e.EventID, e.Title, e.ImageData, se.SubEventID, se.SubEventTitle, se.EventDateTime, v.VenueName, v.State, v.Country 
     FROM Events e 
     INNER JOIN SubEvents se ON e.EventID = se.EventID 
     INNER JOIN Venues v ON se.VenueID = v.VenueID 
@@ -157,10 +188,10 @@ namespace STUBHUB_PROJECT
                                 DateTime rawDate = Convert.ToDateTime(row["EventDateTime"]);
                                 string date = rawDate.ToString("dddd, dd MMMM yyyy, h:mm tt");
 
-                                string venueInfo = $"{row["VenueName"]}, {row["City"]}, {row["Country"]}";
+                                string venueInfo = $"{row["VenueName"]}, {row["State"]}, {row["Country"]}";
 
                                 Event customEventCard = new Event();
-                                Panel finishedPanel = customEventCard.newEventPanel(id, subid, title, subTitle, date, venueInfo);
+                                Panel finishedPanel = customEventCard.newEventPanel(id, subid, title, subTitle, date, venueInfo, userID);
 
                                 flowLayoutPanel1.Controls.Add(finishedPanel);
                             }
@@ -172,6 +203,11 @@ namespace STUBHUB_PROJECT
                     }
                 }
             }
+        }
+        private void EventForm_Load(object sender, EventArgs e)
+        {
+            LoadTicketCounter();
+            LoadEvents();
         }
 
         private void EventForm_FormClosed(object sender, FormClosedEventArgs e)

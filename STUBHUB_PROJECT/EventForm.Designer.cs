@@ -32,6 +32,7 @@
             this.buttonCart = new System.Windows.Forms.Button();
             this.labelEvent = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelTicketCounter = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCart
@@ -72,6 +73,18 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1345, 659);
             this.flowLayoutPanel1.TabIndex = 26;
             // 
+            // labelTicketCounter
+            // 
+            this.labelTicketCounter.AutoSize = true;
+            this.labelTicketCounter.BackColor = System.Drawing.Color.Transparent;
+            this.labelTicketCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTicketCounter.ForeColor = System.Drawing.Color.White;
+            this.labelTicketCounter.Location = new System.Drawing.Point(1188, 49);
+            this.labelTicketCounter.Name = "labelTicketCounter";
+            this.labelTicketCounter.Size = new System.Drawing.Size(30, 32);
+            this.labelTicketCounter.TabIndex = 29;
+            this.labelTicketCounter.Text = "0";
+            // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -79,6 +92,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.Controls.Add(this.labelTicketCounter);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.labelEvent);
             this.Controls.Add(this.buttonCart);
@@ -97,5 +111,6 @@
         private System.Windows.Forms.Button buttonCart;
         private System.Windows.Forms.Label labelEvent;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label labelTicketCounter;
     }
 }

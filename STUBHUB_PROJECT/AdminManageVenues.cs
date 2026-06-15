@@ -114,6 +114,10 @@ namespace STUBHUB_PROJECT
             {
                 finalImageBytes = File.ReadAllBytes(selectedImage);
             }
+            else if (selectedVenueId != -1 && existingImageBytes != null)
+            {
+                finalImageBytes = existingImageBytes;
+            }
             else
             {
                 MessageBox.Show("Please upload an image.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -122,40 +126,60 @@ namespace STUBHUB_PROJECT
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Venues (VenueName, VenueType, State, Country, Capacity, ImageData) VALUES (@VenueName, @VenueType, @State, @Country, @Capacity, @ImageData)";
+                string query;
+
+                if (selectedVenueId == -1)
+                {
+                    query = "INSERT INTO Venues (VenueName, VenueType, State, Country, Capacity, ImageData) VALUES (@VenueName, @VenueType, @State, @Country, @Capacity, @ImageData)";
+                }
+                else
+                {
+                    query = "UPDATE Venues SET VenueName = @VenueName, VenueType = @VenueType, State = @State, Country = @Country, Capacity = @Capacity, ImageData = @ImageData WHERE VenueID = @VenueID";
+                }
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@VenueName", textBoxVenueName.Text);
                     cmd.Parameters.AddWithValue("@VenueType", textBoxVenueType.Text);
-
                     cmd.Parameters.AddWithValue("@State", comboBoxState.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@Country", comboBoxCountry.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@Capacity", textBoxCapacity.Text);
+                    cmd.Parameters.AddWithValue("@Capacity", int.Parse(textBoxCapacity.Text)); 
 
                     if (finalImageBytes != null)
                         cmd.Parameters.AddWithValue("@ImageData", finalImageBytes);
                     else
                         cmd.Parameters.AddWithValue("@ImageData", DBNull.Value);
 
+                    if (selectedVenueId != -1)
+                    {
+                        cmd.Parameters.AddWithValue("@VenueID", selectedVenueId);
+                    }
+
                     try
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Venue added successfully!");
 
+                        if (selectedVenueId == -1)
+                            MessageBox.Show("Venue added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Venue updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        selectedVenueId = -1;
                         textBoxVenueName.Clear();
                         textBoxVenueType.Clear();
                         textBoxCapacity.Clear();
                         comboBoxCountry.SelectedIndex = -1;
+                        comboBoxState.SelectedIndex = -1;
                         pictureBoxImage.Image = null;
                         selectedImage = null;
+                        existingImageBytes = null;
 
                         LoadVenue();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error saving venue: " + ex.Message);
+                        MessageBox.Show("Error saving venue: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

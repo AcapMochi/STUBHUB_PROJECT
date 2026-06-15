@@ -37,6 +37,7 @@
             this.dateTimePickerTicket = new System.Windows.Forms.DateTimePicker();
             this.comboBoxEvents = new System.Windows.Forms.ComboBox();
             this.buttonLogOut = new System.Windows.Forms.Button();
+            this.labelTicketCounter = new System.Windows.Forms.Label();
             this.TicketPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,6 +141,18 @@
             this.buttonLogOut.UseVisualStyleBackColor = false;
             this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
+            // labelTicketCounter
+            // 
+            this.labelTicketCounter.AutoSize = true;
+            this.labelTicketCounter.BackColor = System.Drawing.Color.Transparent;
+            this.labelTicketCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTicketCounter.ForeColor = System.Drawing.Color.White;
+            this.labelTicketCounter.Location = new System.Drawing.Point(1194, 51);
+            this.labelTicketCounter.Name = "labelTicketCounter";
+            this.labelTicketCounter.Size = new System.Drawing.Size(30, 32);
+            this.labelTicketCounter.TabIndex = 27;
+            this.labelTicketCounter.Text = "0";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -148,6 +161,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.Controls.Add(this.labelTicketCounter);
             this.Controls.Add(this.comboBoxEvents);
             this.Controls.Add(this.dateTimePickerTicket);
             this.Controls.Add(this.buttonLogOut);
@@ -162,6 +176,7 @@
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.TicketPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,5 +190,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerTicket;
         private System.Windows.Forms.ComboBox comboBoxEvents;
         private System.Windows.Forms.Button buttonLogOut;
+        private System.Windows.Forms.Label labelTicketCounter;
     }
 }

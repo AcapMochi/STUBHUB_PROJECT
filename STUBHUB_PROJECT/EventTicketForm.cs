@@ -16,7 +16,8 @@ namespace STUBHUB_PROJECT
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
         string currentSubEventID;
-        public EventTicketForm(string subEventId, string eventTitle, string subEventTitle, string subEventDate, string venueName)
+        private int userID;
+        public EventTicketForm(string subEventId, string eventTitle, string subEventTitle, string subEventDate, string venueName, int userID)
         {
             InitializeComponent();
             currentSubEventID = subEventId;
@@ -27,6 +28,7 @@ namespace STUBHUB_PROJECT
             labelSubEventVenue.Text = venueName;
 
             labelEvent.Text = eventTitle + " Tickets";
+            this.userID = userID;
         }
 
         public class TicketTierCard
@@ -97,7 +99,33 @@ namespace STUBHUB_PROJECT
             }
         }
 
-        private void EventTicketForm_Load(object sender, EventArgs e)
+        private void LoadTicketCounter()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ISNULL(SUM(oi.Quantity), 0) FROM OrderItems oi INNER JOIN Orders o ON oi.OrderID = o.OrderID WHERE o.UserID = @UserID AND o.OrderStatus = 'Pending'";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+
+                    try
+                    {
+                        con.Open();
+                        int ticketCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        labelTicketCounter.Text = ticketCount.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading ticket count: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        labelTicketCounter.Text = "0";
+                    }
+                }
+            }
+        }
+
+        private void LoadSubEvents()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -163,6 +191,12 @@ namespace STUBHUB_PROJECT
                     }
                 }
             }
+        }
+
+        private void EventTicketForm_Load(object sender, EventArgs e)
+        {
+            LoadTicketCounter();
+            LoadSubEvents();
         }
     }
 }

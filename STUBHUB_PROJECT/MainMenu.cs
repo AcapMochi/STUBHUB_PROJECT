@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,8 @@ namespace STUBHUB_PROJECT
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
         LoginForm lf = null;
+
+        private int userID;
 
         private bool isLoggingOut = false;
         private void LoadEvents()
@@ -33,13 +36,41 @@ namespace STUBHUB_PROJECT
             }
         }
 
-        public MainMenu(LoginForm lf)
+        public MainMenu(LoginForm lf, int userID)
         {
             InitializeComponent();
             this.lf = lf;
+            this.userID = userID;
+        }
+
+        private void LoadTicketCounter()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ISNULL(SUM(oi.Quantity), 0) FROM OrderItems oi INNER JOIN Orders o ON oi.OrderID = o.OrderID WHERE o.UserID = @UserID AND o.OrderStatus = 'Pending'";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+
+                    try
+                    {
+                        con.Open();
+                        int ticketCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        labelTicketCounter.Text = ticketCount.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading ticket count: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        labelTicketCounter.Text = "0";
+                    }
+                }
+            }
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            LoadTicketCounter();
             LoadEvents();
         }
 
@@ -86,7 +117,7 @@ namespace STUBHUB_PROJECT
                 }
             }
 
-            EventForm form = new EventForm(this, index, title);
+            EventForm form = new EventForm(this, index, title, userID);
             this.Hide();
             form.ShowDialog();
         }
