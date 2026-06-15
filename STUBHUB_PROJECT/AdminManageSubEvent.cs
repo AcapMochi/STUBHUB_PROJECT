@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.IO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,9 @@ namespace STUBHUB_PROJECT
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True;";
         int eventID;
         int selectedSubEventID = -1;
+        byte[] existingImageBytes = null;
+
+        private string selectedImage;
         public AdminManageSubEvent(int eventID)
         {
             InitializeComponent();
@@ -62,6 +66,7 @@ namespace STUBHUB_PROJECT
                         sqlDataAdapter.Fill(dt);
 
                         dataGridViewSubEvents.DataSource = dt;
+
                     }
                 }
             }
@@ -99,6 +104,17 @@ namespace STUBHUB_PROJECT
                 return;
             }
 
+            byte[] finalImageBytes;
+
+            if (!string.IsNullOrEmpty(selectedImage))
+            {
+                finalImageBytes = File.ReadAllBytes(selectedImage);
+            }
+            else
+            {
+                finalImageBytes = existingImageBytes;
+            }
+
             string title = textBoxSubEventTitle.Text;
             int venueID = Convert.ToInt32(comboBoxVenue.SelectedValue);
             string status = comboBoxStatus.SelectedItem.ToString();
@@ -110,11 +126,11 @@ namespace STUBHUB_PROJECT
 
                 if (selectedSubEventID == -1)
                 {
-                    query = "INSERT INTO SubEvents (EventID, VenueID, SubEventTitle, EventDateTime, Status) VALUES (@EventID, @VenueID, @SubEventTitle, @EventDateTime, @Status)";
+                    query = "INSERT INTO SubEvents (EventID, VenueID, SubEventTitle, EventDateTime, ImageData, Status) VALUES (@EventID, @VenueID, @SubEventTitle, @EventDateTime, @ImageData, @Status)";
                 }
                 else
                 {
-                    query = "UPDATE SubEvents SET VenueID = @VenueID, SubEventTitle = @SubEventTitle, EventDateTime = @EventDateTime, Status = @Status WHERE SubEventID = @SubEventID";
+                    query = "UPDATE SubEvents SET VenueID = @VenueID, SubEventTitle = @SubEventTitle, EventDateTime = @EventDateTime, ImageData = @ImageData, Status = @Status WHERE SubEventID = @SubEventID";
                 }
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -122,6 +138,7 @@ namespace STUBHUB_PROJECT
                     cmd.Parameters.AddWithValue("@VenueID", venueID);
                     cmd.Parameters.AddWithValue("@SubEventTitle", title);
                     cmd.Parameters.AddWithValue("@EventDateTime", eventDate);
+                    cmd.Parameters.AddWithValue("@ImageData", finalImageBytes);
                     cmd.Parameters.AddWithValue("@Status", status);
 
                     if (selectedSubEventID == -1)
@@ -168,6 +185,92 @@ namespace STUBHUB_PROJECT
                 comboBoxVenue.SelectedValue = row.Cells["VenueID"].Value;
                 comboBoxStatus.SelectedItem = row.Cells["Status"].Value.ToString();
                 dateTimePickerVenue.Value = Convert.ToDateTime(row.Cells["EventDateTime"].Value);
+
+                object imageDataObj = row.Cells["ImageData"].Value;
+
+                if (imageDataObj != DBNull.Value && imageDataObj != null && imageDataObj is byte[])
+                {
+                    existingImageBytes = (byte[])imageDataObj;
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream(existingImageBytes);
+                    pictureBoxImage.Image = Image.FromStream(ms);
+                    pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+                else
+                {
+                    pictureBoxImage.Image = null;
+                    existingImageBytes = null;
+                }
+            }
+        }
+
+        private void buttonUploadImage_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxImage.Image = Image.FromFile(openFileDialog1.FileName);
+                pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
+
+                selectedImage = openFileDialog1.FileName;
+            }
+        }
+
+        private void buttonDeleteSubEvent_Click(object sender, EventArgs e)
+        {
+            if (selectedSubEventID == -1)
+            {
+                MessageBox.Show("Please select a sub-event from the table to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this sub-event? This action cannot be undone.", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        string query = "DELETE FROM SubEvents WHERE SubEventID = @SubEventID";
+
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@SubEventID", selectedSubEventID);
+
+                            conn.Open();
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Sub-event deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                selectedSubEventID = -1;
+                                textBoxSubEventTitle.Text = "";
+                                comboBoxVenue.SelectedIndex = -1;
+                                comboBoxStatus.SelectedIndex = -1;
+                                dateTimePickerVenue.Value = DateTime.Now;
+                                pictureBoxImage.Image = null;
+                                existingImageBytes = null;
+                                selectedImage = null;
+
+                                LoadSubEvent();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No sub-event was deleted. It might have already been removed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show("A database error occurred. It's likely this sub-event cannot be deleted because it has ticket tiers or orders linked to it.\n\nError details: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

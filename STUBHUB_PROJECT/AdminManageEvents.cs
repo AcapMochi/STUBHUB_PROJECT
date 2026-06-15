@@ -76,6 +76,24 @@ namespace STUBHUB_PROJECT
             {
                 int eventID = Convert.ToInt32(dataGridViewEvents.SelectedRows[0].Cells["EventID"].Value);
 
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    string query = "DELETE FROM SubEvents WHERE SubEventID = @SubEventID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SubEventID", eventID);
+
+                        DialogResult result = MessageBox.Show($"Are you sure you want to delete the following SubEvent Entry?", "Delete Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
             }
             else
             {
@@ -91,7 +109,6 @@ namespace STUBHUB_PROJECT
 
                 AdminManageSubEvent form = new AdminManageSubEvent(eventID);
                 form.ShowDialog();
-                this.Hide();
             }
             else
             {
@@ -101,15 +118,13 @@ namespace STUBHUB_PROJECT
 
         private void buttonManageTickets_Click(object sender, EventArgs e)
         {
-            if (dataGridViewEvents.SelectedRows.Count > 0)
-            {
-                int orderId = Convert.ToInt32(dataGridViewEvents.SelectedRows[0].Cells["EventID"].Value);
+            AdminManageTickets form = new AdminManageTickets();
+            form.ShowDialog();
+        }
 
-            }
-            else
-            {
-                MessageBox.Show("Please select a transaction row from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

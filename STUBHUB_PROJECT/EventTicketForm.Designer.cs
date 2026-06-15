@@ -35,20 +35,20 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxVenue = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelSubEventVenue = new System.Windows.Forms.Label();
             this.labelSubEventDate = new System.Windows.Forms.Label();
             this.labelSubEventTitle = new System.Windows.Forms.Label();
             this.labelEventTitle = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSubEvent = new System.Windows.Forms.PictureBox();
             this.buttonCart = new System.Windows.Forms.Button();
             this.labelEvent = new System.Windows.Forms.Label();
             this.flowLayoutPanelTickets.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVenue)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSubEvent)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,14 +123,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "RM1000 /each";
             // 
-            // pictureBox1
+            // pictureBoxVenue
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox1.Location = new System.Drawing.Point(734, 311);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(544, 466);
-            this.pictureBox1.TabIndex = 31;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxVenue.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pictureBoxVenue.Location = new System.Drawing.Point(734, 311);
+            this.pictureBoxVenue.Name = "pictureBoxVenue";
+            this.pictureBoxVenue.Size = new System.Drawing.Size(544, 466);
+            this.pictureBoxVenue.TabIndex = 31;
+            this.pictureBoxVenue.TabStop = false;
             // 
             // panel1
             // 
@@ -139,7 +139,7 @@
             this.panel1.Controls.Add(this.labelSubEventDate);
             this.panel1.Controls.Add(this.labelSubEventTitle);
             this.panel1.Controls.Add(this.labelEventTitle);
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBoxSubEvent);
             this.panel1.Location = new System.Drawing.Point(48, 163);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1230, 127);
@@ -185,14 +185,14 @@
             this.labelEventTitle.TabIndex = 1;
             this.labelEventTitle.Text = "English Premier Leauge";
             // 
-            // pictureBox2
+            // pictureBoxSubEvent
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.DimGray;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(349, 127);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxSubEvent.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBoxSubEvent.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxSubEvent.Name = "pictureBoxSubEvent";
+            this.pictureBoxSubEvent.Size = new System.Drawing.Size(349, 127);
+            this.pictureBoxSubEvent.TabIndex = 0;
+            this.pictureBoxSubEvent.TabStop = false;
             // 
             // buttonCart
             // 
@@ -227,7 +227,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 954);
             this.Controls.Add(this.flowLayoutPanelTickets);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxVenue);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelEvent);
             this.Controls.Add(this.buttonCart);
@@ -239,10 +239,10 @@
             this.flowLayoutPanelTickets.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVenue)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSubEvent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,9 +256,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxVenue;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxSubEvent;
         private System.Windows.Forms.Button buttonCart;
         private System.Windows.Forms.Label labelEventTitle;
         private System.Windows.Forms.Label labelSubEventVenue;

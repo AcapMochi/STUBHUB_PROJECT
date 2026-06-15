@@ -42,16 +42,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearchUser
             // 
-            this.txtSearchUser.Location = new System.Drawing.Point(433, 151);
+            this.txtSearchUser.Location = new System.Drawing.Point(639, 127);
             this.txtSearchUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearchUser.Name = "txtSearchUser";
-            this.txtSearchUser.Size = new System.Drawing.Size(208, 26);
+            this.txtSearchUser.Size = new System.Drawing.Size(608, 26);
             this.txtSearchUser.TabIndex = 12;
             this.txtSearchUser.TextChanged += new System.EventHandler(this.txtSearchUser_TextChanged);
             // 
@@ -62,7 +65,7 @@
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Location = new System.Drawing.Point(285, 151);
+            this.label2.Location = new System.Drawing.Point(491, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 24);
             this.label2.TabIndex = 11;
@@ -70,10 +73,10 @@
             // 
             // txtFilterRole
             // 
-            this.txtFilterRole.Location = new System.Drawing.Point(825, 149);
+            this.txtFilterRole.Location = new System.Drawing.Point(639, 162);
             this.txtFilterRole.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFilterRole.Name = "txtFilterRole";
-            this.txtFilterRole.Size = new System.Drawing.Size(254, 26);
+            this.txtFilterRole.Size = new System.Drawing.Size(608, 26);
             this.txtFilterRole.TabIndex = 14;
             this.txtFilterRole.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -84,7 +87,7 @@
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label1.Location = new System.Drawing.Point(704, 149);
+            this.label1.Location = new System.Drawing.Point(512, 162);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 24);
             this.label1.TabIndex = 13;
@@ -94,12 +97,12 @@
             // 
             this.dgvUsers.BackgroundColor = System.Drawing.Color.MidnightBlue;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(175, 192);
+            this.dgvUsers.Location = new System.Drawing.Point(493, 210);
             this.dgvUsers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
-            this.dgvUsers.Size = new System.Drawing.Size(466, 258);
+            this.dgvUsers.Size = new System.Drawing.Size(754, 258);
             this.dgvUsers.TabIndex = 15;
             this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
             // 
@@ -111,47 +114,48 @@
             this.panel2.Controls.Add(this.labelEmail);
             this.panel2.Controls.Add(this.labelName);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(685, 192);
+            this.panel2.Location = new System.Drawing.Point(493, 496);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(395, 212);
+            this.panel2.Size = new System.Drawing.Size(754, 212);
             this.panel2.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Transparent;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label5.Location = new System.Drawing.Point(8, 90);
+            this.label5.Location = new System.Drawing.Point(8, 148);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 18);
+            this.label5.Size = new System.Drawing.Size(70, 29);
             this.label5.TabIndex = 21;
             this.label5.Text = "Role:";
             // 
             // comboBoxRole
             // 
+            this.comboBoxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Items.AddRange(new object[] {
             "User",
             "Admin"});
-            this.comboBoxRole.Location = new System.Drawing.Point(72, 86);
+            this.comboBoxRole.Location = new System.Drawing.Point(84, 145);
             this.comboBoxRole.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxRole.Name = "comboBoxRole";
-            this.comboBoxRole.Size = new System.Drawing.Size(136, 28);
+            this.comboBoxRole.Size = new System.Drawing.Size(136, 37);
             this.comboBoxRole.TabIndex = 20;
             // 
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.BackColor = System.Drawing.Color.Transparent;
-            this.labelEmail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.ForeColor = System.Drawing.Color.Transparent;
             this.labelEmail.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.labelEmail.Location = new System.Drawing.Point(8, 55);
+            this.labelEmail.Location = new System.Drawing.Point(8, 92);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(56, 18);
+            this.labelEmail.Size = new System.Drawing.Size(80, 29);
             this.labelEmail.TabIndex = 19;
             this.labelEmail.Text = "Email:";
             // 
@@ -159,12 +163,12 @@
             // 
             this.labelName.AutoSize = true;
             this.labelName.BackColor = System.Drawing.Color.Transparent;
-            this.labelName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.ForeColor = System.Drawing.Color.Transparent;
             this.labelName.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.labelName.Location = new System.Drawing.Point(7, 32);
+            this.labelName.Location = new System.Drawing.Point(8, 41);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(63, 18);
+            this.labelName.Size = new System.Drawing.Size(90, 29);
             this.labelName.TabIndex = 18;
             this.labelName.Text = "Name: ";
             // 
@@ -172,12 +176,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label3.Location = new System.Drawing.Point(4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 24);
+            this.label3.Size = new System.Drawing.Size(156, 29);
             this.label3.TabIndex = 17;
             this.label3.Text = "User Details";
             // 
@@ -187,7 +191,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnSave.Location = new System.Drawing.Point(685, 419);
+            this.btnSave.Location = new System.Drawing.Point(493, 723);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(166, 36);
@@ -203,7 +207,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnDelete.Location = new System.Drawing.Point(913, 419);
+            this.btnDelete.Location = new System.Drawing.Point(721, 723);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(166, 36);
@@ -213,6 +217,32 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.buttonClose);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(385, 817);
+            this.panel1.TabIndex = 19;
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.BackColor = System.Drawing.Color.Navy;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClose.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonClose.Location = new System.Drawing.Point(38, 579);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(307, 74);
+            this.buttonClose.TabIndex = 4;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
             // AdminUserAccountsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -220,6 +250,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel2);
@@ -237,6 +268,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +288,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonClose;
     }
 }

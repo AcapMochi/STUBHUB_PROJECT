@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminManageSubEvent));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonUploadImage = new System.Windows.Forms.Button();
+            this.pictureBoxImage = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboBoxVenue = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
@@ -45,12 +48,16 @@
             this.textBoxSubEventTitle = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubEvents)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.buttonUploadImage);
+            this.panel1.Controls.Add(this.pictureBoxImage);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.comboBoxVenue);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.comboBoxStatus);
@@ -68,6 +75,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1248, 651);
             this.panel1.TabIndex = 1;
+            // 
+            // buttonUploadImage
+            // 
+            this.buttonUploadImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUploadImage.Location = new System.Drawing.Point(41, 503);
+            this.buttonUploadImage.Name = "buttonUploadImage";
+            this.buttonUploadImage.Size = new System.Drawing.Size(151, 32);
+            this.buttonUploadImage.TabIndex = 20;
+            this.buttonUploadImage.Text = "Upload Image";
+            this.buttonUploadImage.UseVisualStyleBackColor = true;
+            this.buttonUploadImage.Click += new System.EventHandler(this.buttonUploadImage_Click);
+            // 
+            // pictureBoxImage
+            // 
+            this.pictureBoxImage.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxImage.Location = new System.Drawing.Point(41, 326);
+            this.pictureBoxImage.Name = "pictureBoxImage";
+            this.pictureBoxImage.Size = new System.Drawing.Size(445, 162);
+            this.pictureBoxImage.TabIndex = 19;
+            this.pictureBoxImage.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(38, 294);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 29);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Image";
             // 
             // comboBoxVenue
             // 
@@ -132,6 +171,7 @@
             this.buttonDeleteSubEvent.TabIndex = 12;
             this.buttonDeleteSubEvent.Text = "Delete SubEvent";
             this.buttonDeleteSubEvent.UseVisualStyleBackColor = true;
+            this.buttonDeleteSubEvent.Click += new System.EventHandler(this.buttonDeleteSubEvent_Click);
             // 
             // dataGridViewSubEvents
             // 
@@ -228,6 +268,7 @@
             this.Load += new System.EventHandler(this.AdminManageSubEvent_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubEvents)).EndInit();
             this.ResumeLayout(false);
 
@@ -250,5 +291,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxVenue;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonUploadImage;
+        private System.Windows.Forms.PictureBox pictureBoxImage;
+        private System.Windows.Forms.Label label6;
     }
 }

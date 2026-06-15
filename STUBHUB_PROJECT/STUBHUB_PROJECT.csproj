@@ -93,17 +93,17 @@
     <Compile Include="AdminManageSubEvent.Designer.cs">
       <DependentUpon>AdminManageSubEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminManageVenues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManageVenues.Designer.cs">
+      <DependentUpon>AdminManageVenues.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminProfileForm.Designer.cs">
       <DependentUpon>AdminProfileForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminSeatingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminSeatingForm.Designer.cs">
-      <DependentUpon>AdminSeatingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminTransactionsForm.cs">
       <SubType>Form</SubType>
@@ -193,11 +193,11 @@
     <EmbeddedResource Include="AdminManageSubEvent.resx">
       <DependentUpon>AdminManageSubEvent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminManageVenues.resx">
+      <DependentUpon>AdminManageVenues.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminProfileForm.resx">
       <DependentUpon>AdminProfileForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminSeatingForm.resx">
-      <DependentUpon>AdminSeatingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminTransactionsForm.resx">
       <DependentUpon>AdminTransactionsForm.cs</DependentUpon>

@@ -93,5 +93,17 @@ namespace STUBHUB_PROJECT
         {
             LoadProfile();
         }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void labelChangePassword_Click(object sender, EventArgs e)
+        {
+            AdminChangePassword form = new AdminChangePassword(userID, this);
+            this.Hide();
+            form.ShowDialog();
+        }
     }
 }

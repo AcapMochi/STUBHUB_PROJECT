@@ -130,13 +130,6 @@ namespace STUBHUB_PROJECT
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AdminSeatingForm seatingForm = new AdminSeatingForm();
-            seatingForm.Show();
-            this.Hide();
-        }
-
         private void btnExport_Click(object sender, EventArgs e)
         {
             if (dgvTransactions.Rows.Count > 0)
@@ -209,15 +202,9 @@ namespace STUBHUB_PROJECT
                 dt.DefaultView.RowFilter = string.Format("Customer LIKE '%{0}%' OR Convert([Order ID], 'System.String') LIKE '%{0}%'", filterText);
             }
         }
-
-        private void label4_Click(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void lblTotalRevenue_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

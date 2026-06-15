@@ -35,7 +35,6 @@
             this.buttonAdminProfile = new System.Windows.Forms.Button();
             this.buttonUserAccounts = new System.Windows.Forms.Button();
             this.buttonTandB = new System.Windows.Forms.Button();
-            this.buttonSandP = new System.Windows.Forms.Button();
             this.buttonManageEvents = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEventsOverview = new System.Windows.Forms.DataGridView();
@@ -50,7 +49,6 @@
             this.panel1.Controls.Add(this.buttonAdminProfile);
             this.panel1.Controls.Add(this.buttonUserAccounts);
             this.panel1.Controls.Add(this.buttonTandB);
-            this.panel1.Controls.Add(this.buttonSandP);
             this.panel1.Controls.Add(this.buttonManageEvents);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -65,13 +63,14 @@
             this.buttonManageVenues.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonManageVenues.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonManageVenues.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonManageVenues.Location = new System.Drawing.Point(38, 155);
+            this.buttonManageVenues.Location = new System.Drawing.Point(38, 251);
             this.buttonManageVenues.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonManageVenues.Name = "buttonManageVenues";
             this.buttonManageVenues.Size = new System.Drawing.Size(307, 74);
             this.buttonManageVenues.TabIndex = 6;
             this.buttonManageVenues.Text = "Manage Venues";
             this.buttonManageVenues.UseVisualStyleBackColor = false;
+            this.buttonManageVenues.Click += new System.EventHandler(this.buttonManageVenues_Click);
             // 
             // buttonLogOut
             // 
@@ -133,28 +132,13 @@
             this.buttonTandB.UseVisualStyleBackColor = false;
             this.buttonTandB.Click += new System.EventHandler(this.buttonTandB_Click);
             // 
-            // buttonSandP
-            // 
-            this.buttonSandP.BackColor = System.Drawing.Color.Navy;
-            this.buttonSandP.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSandP.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSandP.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonSandP.Location = new System.Drawing.Point(38, 251);
-            this.buttonSandP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonSandP.Name = "buttonSandP";
-            this.buttonSandP.Size = new System.Drawing.Size(307, 74);
-            this.buttonSandP.TabIndex = 2;
-            this.buttonSandP.Text = "Seating and  Pricing";
-            this.buttonSandP.UseVisualStyleBackColor = false;
-            this.buttonSandP.Click += new System.EventHandler(this.buttonSandP_Click);
-            // 
             // buttonManageEvents
             // 
             this.buttonManageEvents.BackColor = System.Drawing.Color.Navy;
             this.buttonManageEvents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonManageEvents.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonManageEvents.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonManageEvents.Location = new System.Drawing.Point(38, 62);
+            this.buttonManageEvents.Location = new System.Drawing.Point(38, 158);
             this.buttonManageEvents.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonManageEvents.Name = "buttonManageEvents";
             this.buttonManageEvents.Size = new System.Drawing.Size(307, 74);
@@ -223,7 +207,6 @@
         private System.Windows.Forms.Button buttonAdminProfile;
         private System.Windows.Forms.Button buttonUserAccounts;
         private System.Windows.Forms.Button buttonTandB;
-        private System.Windows.Forms.Button buttonSandP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvEventsOverview;
         private System.Windows.Forms.Button buttonLogOut;

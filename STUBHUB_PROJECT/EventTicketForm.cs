@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static STUBHUB_PROJECT.EventForm;
 
 namespace STUBHUB_PROJECT
 {
@@ -100,9 +101,40 @@ namespace STUBHUB_PROJECT
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT TierID, TierName, Price FROM TicketTiers WHERE SubEventID = @SubEventID";
+                string query1 = "SELECT ImageData FROM SubEvents WHERE SubEventID = @SubEventID";
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand(query1, conn))
+                {
+                    cmd.Parameters.AddWithValue("@SubEventID", currentSubEventID);
+
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        int rowsFound = sqlDataAdapter.Fill(dt);
+
+                        if (rowsFound > 0)
+                        {
+
+                            if (dt.Rows[0]["ImageData"] != DBNull.Value)
+                            {
+                                byte[] imageBytes = (byte[])dt.Rows[0]["ImageData"];
+
+                                System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes);
+                                pictureBoxSubEvent.BackgroundImage = Image.FromStream(ms);
+
+                                pictureBoxSubEvent.BackgroundImageLayout = ImageLayout.Stretch;
+                            }
+                            else
+                            {
+                                pictureBoxSubEvent.BackgroundImage = null;
+                            }
+                        }
+                    }
+                }
+
+                string query2 = "SELECT TierID, TierName, Price FROM TicketTiers WHERE SubEventID = @SubEventID";
+
+                using (SqlCommand cmd = new SqlCommand(query2, conn))
                 {
                     cmd.Parameters.AddWithValue("@SubEventID", int.Parse(currentSubEventID));
 

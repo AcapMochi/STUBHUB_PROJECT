@@ -111,13 +111,6 @@ namespace STUBHUB_PROJECT
             AdminTransactionsForm form = new AdminTransactionsForm();
             form.ShowDialog();
         }
-
-        private void buttonSandP_Click(object sender, EventArgs e)
-        {
-            AdminSeatingForm form = new AdminSeatingForm();
-            form.ShowDialog();
-        }
-
         private void buttonManageEvents_Click(object sender, EventArgs e)
         {
             AdminManageEvents form = new AdminManageEvents();
@@ -140,6 +133,12 @@ namespace STUBHUB_PROJECT
         private void FormAdminDashboard_Activated(object sender, EventArgs e)
         {
             LoadEventsOverview();
+        }
+
+        private void buttonManageVenues_Click(object sender, EventArgs e)
+        {
+            AdminManageVenues form = new AdminManageVenues();
+            form.ShowDialog();
         }
     }
 }

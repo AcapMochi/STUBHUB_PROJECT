@@ -121,6 +121,7 @@
             this.buttonBack.Text = "Back";
             this.buttonBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonBack.UseVisualStyleBackColor = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // buttonConfirm
             // 
@@ -136,6 +137,7 @@
             this.buttonConfirm.Text = "Confirm";
             this.buttonConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonConfirm.UseVisualStyleBackColor = false;
+            this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
             // AdminChangePassword
             // 

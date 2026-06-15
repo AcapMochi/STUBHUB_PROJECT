@@ -15,6 +15,7 @@ namespace STUBHUB_PROJECT
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True;";
         LoginForm form = null;
+        private bool isSwitchingForms = false;
         public AdminLoginForm(LoginForm alf)
         {
             InitializeComponent();
@@ -35,6 +36,8 @@ namespace STUBHUB_PROJECT
 
                 MessageBox.Show("Valid Login, Welcome back!");
                 FormAdminDashboard form = new FormAdminDashboard(userID, this);
+                isSwitchingForms = true;
+
                 this.Hide();
                 form.ShowDialog();
             }
@@ -78,14 +81,17 @@ namespace STUBHUB_PROJECT
 
         private void LabelRegister_Click(object sender, EventArgs e)
         {
+            isSwitchingForms = true;
             form.Show();
             this.Close();
         }
 
         private void AdminLoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
-             Application.Exit();
+            if (!isSwitchingForms)
+            {
+                Application.Exit();
+            }
         }
 
         private void AdminLoginForm_Load(object sender, EventArgs e)
