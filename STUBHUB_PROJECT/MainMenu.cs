@@ -135,5 +135,17 @@ namespace STUBHUB_PROJECT
             lf.Show();
             this.Close();
         }
+
+        private void MainMenu_Activated(object sender, EventArgs e)
+        {
+            LoadTicketCounter();
+        }
+
+        private void buttonCart_Click(object sender, EventArgs e)
+        {
+            MyCart form = new MyCart(userID, this);
+            this.Hide();
+            form.ShowDialog();
+        }
     }
 }

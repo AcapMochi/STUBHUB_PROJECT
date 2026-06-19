@@ -214,5 +214,10 @@ namespace STUBHUB_PROJECT
         {
             form.Show();
         }
+
+        private void EventForm_Activated(object sender, EventArgs e)
+        {
+            LoadTicketCounter();
+        }
     }
 }

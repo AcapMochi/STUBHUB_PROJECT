@@ -41,9 +41,10 @@
             this.buttonCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCart.BackgroundImage")));
             this.buttonCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCart.Location = new System.Drawing.Point(1224, 39);
+            this.buttonCart.Location = new System.Drawing.Point(1088, 31);
+            this.buttonCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCart.Name = "buttonCart";
-            this.buttonCart.Size = new System.Drawing.Size(54, 42);
+            this.buttonCart.Size = new System.Drawing.Size(48, 34);
             this.buttonCart.TabIndex = 18;
             this.buttonCart.UseVisualStyleBackColor = false;
             // 
@@ -53,9 +54,9 @@
             this.labelEvent.BackColor = System.Drawing.Color.Transparent;
             this.labelEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelEvent.Location = new System.Drawing.Point(393, 108);
+            this.labelEvent.Location = new System.Drawing.Point(349, 86);
             this.labelEvent.Name = "labelEvent";
-            this.labelEvent.Size = new System.Drawing.Size(548, 52);
+            this.labelEvent.Size = new System.Drawing.Size(468, 42);
             this.labelEvent.TabIndex = 22;
             this.labelEvent.Text = "Upcoming Foot Ball Events";
             this.labelEvent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,10 +68,11 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(-4, 163);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(-4, 130);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1345, 659);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(18, 8, 18, 8);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1196, 527);
             this.flowLayoutPanel1.TabIndex = 26;
             // 
             // labelTicketCounter
@@ -79,27 +81,29 @@
             this.labelTicketCounter.BackColor = System.Drawing.Color.Transparent;
             this.labelTicketCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTicketCounter.ForeColor = System.Drawing.Color.White;
-            this.labelTicketCounter.Location = new System.Drawing.Point(1188, 49);
+            this.labelTicketCounter.Location = new System.Drawing.Point(1056, 39);
             this.labelTicketCounter.Name = "labelTicketCounter";
-            this.labelTicketCounter.Size = new System.Drawing.Size(30, 32);
+            this.labelTicketCounter.Size = new System.Drawing.Size(26, 29);
             this.labelTicketCounter.TabIndex = 29;
             this.labelTicketCounter.Text = "0";
             // 
             // EventForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.ClientSize = new System.Drawing.Size(1190, 654);
             this.Controls.Add(this.labelTicketCounter);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.labelEvent);
             this.Controls.Add(this.buttonCart);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EventForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EventForm";
+            this.Activated += new System.EventHandler(this.EventForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EventForm_FormClosed);
             this.Load += new System.EventHandler(this.EventForm_Load);
             this.ResumeLayout(false);

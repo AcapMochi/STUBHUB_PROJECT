@@ -49,18 +49,20 @@
             this.TicketPanel.Controls.Add(this.FindTicketButton);
             this.TicketPanel.Controls.Add(this.DateButton);
             this.TicketPanel.Controls.Add(this.ChooseEventButton);
-            this.TicketPanel.Location = new System.Drawing.Point(312, 314);
+            this.TicketPanel.Location = new System.Drawing.Point(277, 251);
+            this.TicketPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TicketPanel.Name = "TicketPanel";
-            this.TicketPanel.Size = new System.Drawing.Size(691, 54);
+            this.TicketPanel.Size = new System.Drawing.Size(614, 43);
             this.TicketPanel.TabIndex = 0;
             // 
             // FindTicketButton
             // 
             this.FindTicketButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.FindTicketButton.ForeColor = System.Drawing.Color.Transparent;
-            this.FindTicketButton.Location = new System.Drawing.Point(527, 0);
+            this.FindTicketButton.Location = new System.Drawing.Point(468, 0);
+            this.FindTicketButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FindTicketButton.Name = "FindTicketButton";
-            this.FindTicketButton.Size = new System.Drawing.Size(164, 54);
+            this.FindTicketButton.Size = new System.Drawing.Size(146, 43);
             this.FindTicketButton.TabIndex = 2;
             this.FindTicketButton.Text = "Find Ticket";
             this.FindTicketButton.UseVisualStyleBackColor = false;
@@ -68,9 +70,10 @@
             // 
             // DateButton
             // 
-            this.DateButton.Location = new System.Drawing.Point(362, 0);
+            this.DateButton.Location = new System.Drawing.Point(322, 0);
+            this.DateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DateButton.Name = "DateButton";
-            this.DateButton.Size = new System.Drawing.Size(116, 54);
+            this.DateButton.Size = new System.Drawing.Size(103, 43);
             this.DateButton.TabIndex = 1;
             this.DateButton.Text = "Date";
             this.DateButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -79,9 +82,10 @@
             // 
             // ChooseEventButton
             // 
-            this.ChooseEventButton.Location = new System.Drawing.Point(46, 0);
+            this.ChooseEventButton.Location = new System.Drawing.Point(41, 0);
+            this.ChooseEventButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChooseEventButton.Name = "ChooseEventButton";
-            this.ChooseEventButton.Size = new System.Drawing.Size(220, 54);
+            this.ChooseEventButton.Size = new System.Drawing.Size(196, 43);
             this.ChooseEventButton.TabIndex = 0;
             this.ChooseEventButton.Text = "Choose your event";
             this.ChooseEventButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,17 +98,20 @@
             this.buttonCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCart.BackgroundImage")));
             this.buttonCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCart.Location = new System.Drawing.Point(1230, 41);
+            this.buttonCart.Location = new System.Drawing.Point(1093, 33);
+            this.buttonCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCart.Name = "buttonCart";
-            this.buttonCart.Size = new System.Drawing.Size(54, 42);
+            this.buttonCart.Size = new System.Drawing.Size(48, 34);
             this.buttonCart.TabIndex = 21;
             this.buttonCart.UseVisualStyleBackColor = false;
+            this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
             // 
             // dateTimePickerTicket
             // 
-            this.dateTimePickerTicket.Location = new System.Drawing.Point(628, 374);
+            this.dateTimePickerTicket.Location = new System.Drawing.Point(558, 299);
+            this.dateTimePickerTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerTicket.Name = "dateTimePickerTicket";
-            this.dateTimePickerTicket.Size = new System.Drawing.Size(302, 26);
+            this.dateTimePickerTicket.Size = new System.Drawing.Size(269, 22);
             this.dateTimePickerTicket.TabIndex = 24;
             this.dateTimePickerTicket.Visible = false;
             // 
@@ -120,9 +127,10 @@
             "e",
             "f",
             "g"});
-            this.comboBoxEvents.Location = new System.Drawing.Point(312, 374);
+            this.comboBoxEvents.Location = new System.Drawing.Point(277, 299);
+            this.comboBoxEvents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxEvents.Name = "comboBoxEvents";
-            this.comboBoxEvents.Size = new System.Drawing.Size(310, 28);
+            this.comboBoxEvents.Size = new System.Drawing.Size(276, 24);
             this.comboBoxEvents.TabIndex = 26;
             this.comboBoxEvents.Visible = false;
             // 
@@ -133,9 +141,10 @@
             this.buttonLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonLogOut.Location = new System.Drawing.Point(48, 41);
+            this.buttonLogOut.Location = new System.Drawing.Point(43, 33);
+            this.buttonLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Size = new System.Drawing.Size(132, 42);
+            this.buttonLogOut.Size = new System.Drawing.Size(117, 34);
             this.buttonLogOut.TabIndex = 22;
             this.buttonLogOut.Text = "Log Out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
@@ -147,20 +156,20 @@
             this.labelTicketCounter.BackColor = System.Drawing.Color.Transparent;
             this.labelTicketCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTicketCounter.ForeColor = System.Drawing.Color.White;
-            this.labelTicketCounter.Location = new System.Drawing.Point(1194, 51);
+            this.labelTicketCounter.Location = new System.Drawing.Point(1061, 41);
             this.labelTicketCounter.Name = "labelTicketCounter";
-            this.labelTicketCounter.Size = new System.Drawing.Size(30, 32);
+            this.labelTicketCounter.Size = new System.Drawing.Size(26, 29);
             this.labelTicketCounter.TabIndex = 27;
             this.labelTicketCounter.Text = "0";
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.ClientSize = new System.Drawing.Size(1190, 654);
             this.Controls.Add(this.labelTicketCounter);
             this.Controls.Add(this.comboBoxEvents);
             this.Controls.Add(this.dateTimePickerTicket);
@@ -169,9 +178,11 @@
             this.Controls.Add(this.TicketPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
+            this.Activated += new System.EventHandler(this.MainMenu_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.TicketPanel.ResumeLayout(false);

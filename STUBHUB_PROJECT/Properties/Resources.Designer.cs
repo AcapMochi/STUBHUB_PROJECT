@@ -59,5 +59,25 @@ namespace STUBHUB_PROJECT.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap My_Cart_Form {
+            get {
+                object obj = ResourceManager.GetObject("My Cart Form", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap My_Cart_Form__1_ {
+            get {
+                object obj = ResourceManager.GetObject("My Cart Form (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
