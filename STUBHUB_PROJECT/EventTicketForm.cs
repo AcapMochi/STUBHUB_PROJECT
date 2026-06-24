@@ -18,7 +18,6 @@ namespace STUBHUB_PROJECT
         private string currentSubEventID;
         private int userID;
 
-        // NEW: Tracks all active cards on the screen to read their quantities later
         private List<TicketTierCard> activeTicketCards = new List<TicketTierCard>();
 
         public EventTicketForm(string subEventId, string eventTitle, string subEventTitle, string subEventDate, string venueName, int userID)
@@ -44,7 +43,6 @@ namespace STUBHUB_PROJECT
             public Label labelCounter;
             public Button buttonAdd;
 
-            // NEW: Expose properties to easily build the Ticket objects later
             public int TierID { get; private set; }
             public string TierName { get; private set; }
             public decimal Price { get; private set; }
@@ -124,7 +122,6 @@ namespace STUBHUB_PROJECT
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                // Query to fetch the venue's image by linking it through SubEvents
                 string query = @"
             SELECT v.ImageData 
             FROM Venues v
@@ -152,7 +149,6 @@ namespace STUBHUB_PROJECT
                             }
                             else
                             {
-                                // Fallback if the venue does not have an image assigned
                                 pictureBoxVenue.BackgroundImage = null;
                             }
                         }
@@ -170,7 +166,6 @@ namespace STUBHUB_PROJECT
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                // 1. Load sub-event background image
                 string query1 = "SELECT ImageData FROM SubEvents WHERE SubEventID = @SubEventID";
                 using (SqlCommand cmd = new SqlCommand(query1, conn))
                 {
@@ -194,8 +189,7 @@ namespace STUBHUB_PROJECT
                         }
                     }
                 }
-
-                // 2. Load and build ticket tiers UI layout
+                
                 string query2 = "SELECT TierID, TierName, Price FROM TicketTiers WHERE SubEventID = @SubEventID";
                 using (SqlCommand cmd = new SqlCommand(query2, conn))
                 {
@@ -204,7 +198,7 @@ namespace STUBHUB_PROJECT
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         flowLayoutPanelTickets.Controls.Clear();
-                        activeTicketCards.Clear(); // Clear tracking list for fresh load
+                        activeTicketCards.Clear();
 
                         if (!reader.HasRows)
                         {
@@ -221,8 +215,7 @@ namespace STUBHUB_PROJECT
 
                             TicketTierCard ticketCard = new TicketTierCard();
                             Panel newTierPanel = ticketCard.CreateTicketPanel(tierId, tierName, price);
-
-                            // Save the object reference into tracking list
+                            
                             activeTicketCards.Add(ticketCard);
                             flowLayoutPanelTickets.Controls.Add(newTierPanel);
                         }
@@ -231,12 +224,10 @@ namespace STUBHUB_PROJECT
             }
         }
 
-        // NEW: Event Handler for your green Checkout Button
         private void buttonCheckout_Click(object sender, EventArgs e)
         {
             List<Ticket> selectedTickets = new List<Ticket>();
 
-            // Loop through tracked cards and find ones where user changed quantity
             foreach (TicketTierCard card in activeTicketCards)
             {
                 if (card.Quantity > 0)
@@ -251,7 +242,6 @@ namespace STUBHUB_PROJECT
                 }
             }
 
-            // Ensure they actually picked something
             if (selectedTickets.Count == 0)
             {
                 MessageBox.Show("Please select at least one ticket tier before proceeding.", "No Tickets Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
