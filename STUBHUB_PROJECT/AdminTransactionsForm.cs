@@ -52,14 +52,12 @@ namespace STUBHUB_PROJECT
                         adapter.Fill(dt);
                         dgvTransactions.DataSource = dt;
 
-                        // --- VISUAL FIX: Force the DataGridView text to be readable ---
                         dgvTransactions.DefaultCellStyle.ForeColor = Color.Black;
                         dgvTransactions.DefaultCellStyle.BackColor = Color.White;
-                        dgvTransactions.DefaultCellStyle.SelectionBackColor = Color.LightBlue; // So you can see what you highlighted
+                        dgvTransactions.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
                         dgvTransactions.DefaultCellStyle.SelectionForeColor = Color.Black;
                         dgvTransactions.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
-                        // --- LIVE SALES SUMMARY CALCULATION (FIXED) ---
                         int totalBookings = 0;
                         decimal totalRevenue = 0m;
 
@@ -73,7 +71,6 @@ namespace STUBHUB_PROJECT
                             {
                                 totalBookings++;
 
-                                // Safely parse the value to avoid DBNull or format crashes
                                 if (decimal.TryParse(row.Cells["Total Paid (RM)"].Value?.ToString(), out decimal amount))
                                 {
                                     totalRevenue += amount;
@@ -81,7 +78,6 @@ namespace STUBHUB_PROJECT
                             }
                         }
 
-                        // Update UI Labels
                         lblTotalBookings.Text = "Tickets Issued: " + totalBookings;
                         lblTotalRevenue.Text = "Total Sales: RM " + totalRevenue.ToString("N2");
                     }
@@ -94,20 +90,16 @@ namespace STUBHUB_PROJECT
         }
         private void btnRefundBooking_Click(object sender, EventArgs e)
         {
-            // Check if at least one row is fully selected
             if (dgvTransactions.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgvTransactions.SelectedRows[0];
-
-                // Safeguard 1: Ignore if they selected the blank empty row at the bottom
                 if (selectedRow.IsNewRow) return;
 
-                // Safeguard 2: Prevent double-refunding
                 string currentStatus = selectedRow.Cells["Payment Status"].Value?.ToString();
                 if (currentStatus == "Refunded")
                 {
                     MessageBox.Show("This order has already been refunded. No further action is required.", "Already Refunded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Stop the code here
+                    return;
                 }
 
                 // Proceed with the refund prompt
@@ -123,13 +115,11 @@ namespace STUBHUB_PROJECT
             }
             else
             {
-                // Friendly tip: Users sometimes click a single cell instead of the whole row.
                 MessageBox.Show("Please select an entire transaction row from the grid first (click the margin to the left of the row).", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void ExecuteRefund(int orderId)
         {
-            // Updates the transaction status inside your database Payments table
             string updateQuery = "UPDATE [dbo].[Payments] SET [PaymentStatus] = 'Refunded' WHERE [OrderID] = @OrderID";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -140,16 +130,11 @@ namespace STUBHUB_PROJECT
                     using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@OrderID", orderId);
-
-                        // Safeguard 3: Verify the database actually updated something
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Order marked as Refunded successfully!", "Refund Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Refresh grid view. This will ALSO re-trigger your LoadTransactionHistory math 
-                            // so the Live Sales Summary updates instantly!
                             LoadTransactionHistory();
                         }
                         else
