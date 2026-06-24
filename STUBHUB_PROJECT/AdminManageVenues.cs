@@ -24,7 +24,9 @@ namespace STUBHUB_PROJECT
             { "Malaysia", new List<string> { "Malacca", "Kuala Lumpur", "Penang", "Johor" } },
             { "United States", new List<string> { "California", "New York", "Texas", "Florida" } },
             { "Canada", new List<string> { "Ontario", "British Columbia", "Quebec", "Alberta" } },
-            { "United Kingdom", new List<string> { "England", "Scotland", "Wales", "Northern Ireland" } }
+            { "United Kingdom", new List<string> { "England", "Scotland", "Wales", "Northern Ireland" } },
+            { "Japan", new List<string> { "Osaka", "Yokohama", "Tokyo", "Kyoto"} }
+
         };
 
         public AdminManageVenues()

@@ -52,26 +52,38 @@ namespace STUBHUB_PROJECT
                         adapter.Fill(dt);
                         dgvTransactions.DataSource = dt;
 
-                        // --- LIVE SALES SUMMARY CALCULATION ---
-                        if (dgvTransactions.Rows.Count > 0)
+                        // --- VISUAL FIX: Force the DataGridView text to be readable ---
+                        dgvTransactions.DefaultCellStyle.ForeColor = Color.Black;
+                        dgvTransactions.DefaultCellStyle.BackColor = Color.White;
+                        dgvTransactions.DefaultCellStyle.SelectionBackColor = Color.LightBlue; // So you can see what you highlighted
+                        dgvTransactions.DefaultCellStyle.SelectionForeColor = Color.Black;
+                        dgvTransactions.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+
+                        // --- LIVE SALES SUMMARY CALCULATION (FIXED) ---
+                        int totalBookings = 0;
+                        decimal totalRevenue = 0m;
+
+                        foreach (DataGridViewRow row in dgvTransactions.Rows)
                         {
-                            var transactions = dgvTransactions.Rows.Cast<DataGridViewRow>().Where(row => !row.IsNewRow);
+                            if (row.IsNewRow) continue;
 
-                            int totalBookings = transactions.Count(row => row.Cells["Payment Status"].Value?.ToString() == "Paid");
+                            string status = row.Cells["Payment Status"].Value?.ToString();
 
-                            double totalRevenue = transactions
-                                .Where(row => row.Cells["Payment Status"].Value?.ToString() == "Paid" && row.Cells["Total Paid (RM)"].Value != null)
-                                .Sum(row => Convert.ToDouble(row.Cells["Total Paid (RM)"].Value));
+                            if (status == "Paid")
+                            {
+                                totalBookings++;
 
-                            lblTotalBookings.Text = "Tickets Issued: " + totalBookings;
-                            lblTotalRevenue.Text = "Total Sales: RM " + totalRevenue.ToString("N2");
+                                // Safely parse the value to avoid DBNull or format crashes
+                                if (decimal.TryParse(row.Cells["Total Paid (RM)"].Value?.ToString(), out decimal amount))
+                                {
+                                    totalRevenue += amount;
+                                }
+                            }
                         }
-                        else
-                        {
-                            // This is where your requested 'else' block goes
-                            lblTotalBookings.Text = "Tickets Issued: 0";
-                            lblTotalRevenue.Text = "Total Sales: RM 0.00";
-                        }
+
+                        // Update UI Labels
+                        lblTotalBookings.Text = "Tickets Issued: " + totalBookings;
+                        lblTotalRevenue.Text = "Total Sales: RM " + totalRevenue.ToString("N2");
                     }
                 }
                 catch (Exception ex)

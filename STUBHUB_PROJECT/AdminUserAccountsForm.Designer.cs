@@ -260,6 +260,7 @@
             this.Controls.Add(this.txtSearchUser);
             this.Controls.Add(this.label2);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AdminUserAccountsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

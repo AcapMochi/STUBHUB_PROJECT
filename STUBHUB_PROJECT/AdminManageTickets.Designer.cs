@@ -46,6 +46,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxEventID = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxTicketLevel = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicketsOverview)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +59,8 @@
             // textBoxTierName
             // 
             this.textBoxTierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTierName.Location = new System.Drawing.Point(41, 217);
+            this.textBoxTierName.Location = new System.Drawing.Point(40, 218);
+            this.textBoxTierName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTierName.Name = "textBoxTierName";
             this.textBoxTierName.Size = new System.Drawing.Size(445, 30);
             this.textBoxTierName.TabIndex = 0;
@@ -76,7 +79,8 @@
             // textBoxPrice
             // 
             this.textBoxPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrice.Location = new System.Drawing.Point(41, 291);
+            this.textBoxPrice.Location = new System.Drawing.Point(40, 354);
+            this.textBoxPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(445, 30);
             this.textBoxPrice.TabIndex = 2;
@@ -86,7 +90,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(36, 259);
+            this.label2.Location = new System.Drawing.Point(36, 321);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 29);
             this.label2.TabIndex = 3;
@@ -95,7 +99,8 @@
             // textBoxTotalSeats
             // 
             this.textBoxTotalSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalSeats.Location = new System.Drawing.Point(41, 356);
+            this.textBoxTotalSeats.Location = new System.Drawing.Point(40, 420);
+            this.textBoxTotalSeats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTotalSeats.Name = "textBoxTotalSeats";
             this.textBoxTotalSeats.Size = new System.Drawing.Size(445, 30);
             this.textBoxTotalSeats.TabIndex = 4;
@@ -105,7 +110,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(36, 324);
+            this.label3.Location = new System.Drawing.Point(35, 386);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 29);
             this.label3.TabIndex = 5;
@@ -116,7 +121,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(521, 33);
+            this.label4.Location = new System.Drawing.Point(521, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(214, 29);
             this.label4.TabIndex = 6;
@@ -125,7 +130,8 @@
             // buttonUploadTicket
             // 
             this.buttonUploadTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUploadTicket.Location = new System.Drawing.Point(41, 569);
+            this.buttonUploadTicket.Location = new System.Drawing.Point(40, 569);
+            this.buttonUploadTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUploadTicket.Name = "buttonUploadTicket";
             this.buttonUploadTicket.Size = new System.Drawing.Size(151, 54);
             this.buttonUploadTicket.TabIndex = 9;
@@ -136,7 +142,8 @@
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(355, 569);
+            this.buttonCancel.Location = new System.Drawing.Point(356, 569);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(151, 54);
             this.buttonCancel.TabIndex = 10;
@@ -150,6 +157,7 @@
             this.dataGridViewTicketsOverview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewTicketsOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTicketsOverview.Location = new System.Drawing.Point(526, 65);
+            this.dataGridViewTicketsOverview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewTicketsOverview.Name = "dataGridViewTicketsOverview";
             this.dataGridViewTicketsOverview.RowHeadersWidth = 62;
             this.dataGridViewTicketsOverview.RowTemplate.Height = 28;
@@ -161,6 +169,7 @@
             // 
             this.buttonDeleteTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteTicket.Location = new System.Drawing.Point(198, 569);
+            this.buttonDeleteTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDeleteTicket.Name = "buttonDeleteTicket";
             this.buttonDeleteTicket.Size = new System.Drawing.Size(151, 54);
             this.buttonDeleteTicket.TabIndex = 12;
@@ -183,7 +192,8 @@
             // 
             this.comboBoxSubEventID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSubEventID.FormattingEnabled = true;
-            this.comboBoxSubEventID.Location = new System.Drawing.Point(41, 148);
+            this.comboBoxSubEventID.Location = new System.Drawing.Point(40, 148);
+            this.comboBoxSubEventID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxSubEventID.Name = "comboBoxSubEventID";
             this.comboBoxSubEventID.Size = new System.Drawing.Size(445, 33);
             this.comboBoxSubEventID.TabIndex = 15;
@@ -204,7 +214,8 @@
             // 
             this.comboBoxEventID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxEventID.FormattingEnabled = true;
-            this.comboBoxEventID.Location = new System.Drawing.Point(41, 80);
+            this.comboBoxEventID.Location = new System.Drawing.Point(40, 80);
+            this.comboBoxEventID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxEventID.Name = "comboBoxEventID";
             this.comboBoxEventID.Size = new System.Drawing.Size(445, 33);
             this.comboBoxEventID.TabIndex = 17;
@@ -213,6 +224,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.comboBoxTicketLevel);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.comboBoxEventID);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.comboBoxSubEventID);
@@ -229,9 +242,35 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxTierName);
             this.panel1.Location = new System.Drawing.Point(52, 115);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1248, 651);
             this.panel1.TabIndex = 0;
+            // 
+            // comboBoxTicketLevel
+            // 
+            this.comboBoxTicketLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTicketLevel.FormattingEnabled = true;
+            this.comboBoxTicketLevel.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.comboBoxTicketLevel.Location = new System.Drawing.Point(42, 288);
+            this.comboBoxTicketLevel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxTicketLevel.Name = "comboBoxTicketLevel";
+            this.comboBoxTicketLevel.Size = new System.Drawing.Size(444, 33);
+            this.comboBoxTicketLevel.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(35, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 29);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Tier Level";
             // 
             // AdminManageTickets
             // 
@@ -239,9 +278,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.ClientSize = new System.Drawing.Size(1339, 818);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminManageTickets";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAddEvent";
@@ -271,5 +312,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxEventID;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxTicketLevel;
     }
 }

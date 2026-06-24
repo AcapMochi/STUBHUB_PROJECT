@@ -20,6 +20,7 @@ namespace STUBHUB_PROJECT
         string Title = null;
 
         private int userID;
+        private DateTime selectedDate;
 
         public class Event
         {
@@ -104,19 +105,20 @@ namespace STUBHUB_PROJECT
                 form.ShowDialog();
             }
         }
-        public EventForm(MainMenu mmform, string SI, string T, int userID)
+        public EventForm(MainMenu mmform, string SI, string T, int userID, DateTime dateTime)
         {
             InitializeComponent();
             form = mmform;
             SelectedItem = SI;
             Title = T;
             this.userID = userID;
+            this.selectedDate = dateTime;
         }
         private void LoadTicketCounter()
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT ISNULL(SUM(oi.Quantity), 0) FROM OrderItems oi INNER JOIN Orders o ON oi.OrderID = o.OrderID WHERE o.UserID = @UserID AND o.OrderStatus = 'Pending'";
+                string query = "SELECT ISNULL(SUM(oi.Quantity), 0) FROM OrderItems oi INNER JOIN Orders o ON oi.OrderID = o.OrderID WHERE o.UserID = @UserID AND o.OrderStatus = 'Paid'";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -140,20 +142,24 @@ namespace STUBHUB_PROJECT
 
         private void LoadEvents()
         {
-            labelEvent.Text = "Upcoming " + Title + " Events";
+            // Update the label to reflect the starting date
+            labelEvent.Text = "Upcoming " + Title + " Events from " + selectedDate.ToString("dd MMM yyyy") + " onwards";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
+                // Changed the '=' to '>=' to get events on AND after the selected date
                 string query = @"
-    SELECT e.EventID, e.Title, e.ImageData, se.SubEventID, se.SubEventTitle, se.EventDateTime, v.VenueName, v.State, v.Country 
-    FROM Events e 
-    INNER JOIN SubEvents se ON e.EventID = se.EventID 
-    INNER JOIN Venues v ON se.VenueID = v.VenueID 
-    WHERE e.EventID = @EventID";
+            SELECT e.EventID, e.Title, e.ImageData, se.SubEventID, se.SubEventTitle, se.EventDateTime, v.VenueName, v.State, v.Country 
+            FROM Events e 
+            INNER JOIN SubEvents se ON e.EventID = se.EventID 
+            INNER JOIN Venues v ON se.VenueID = v.VenueID 
+            WHERE e.EventID = @EventID 
+            AND CAST(se.EventDateTime AS DATE) >= CAST(@SelectedDate AS DATE)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@EventID", int.Parse(SelectedItem));
+                    cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
 
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd))
                     {
@@ -167,10 +173,8 @@ namespace STUBHUB_PROJECT
                             if (dt.Rows[0]["ImageData"] != DBNull.Value)
                             {
                                 byte[] imageBytes = (byte[])dt.Rows[0]["ImageData"];
-
                                 System.IO.MemoryStream ms = new System.IO.MemoryStream(imageBytes);
                                 flowLayoutPanel1.BackgroundImage = Image.FromStream(ms);
-
                                 flowLayoutPanel1.BackgroundImageLayout = ImageLayout.Stretch;
                             }
                             else
@@ -198,7 +202,8 @@ namespace STUBHUB_PROJECT
                         }
                         else
                         {
-                            MessageBox.Show("There are no Sub Events entries.");
+                            MessageBox.Show("There are no events scheduled from this date onwards.", "No Events", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
                         }
                     }
                 }
@@ -218,6 +223,14 @@ namespace STUBHUB_PROJECT
         private void EventForm_Activated(object sender, EventArgs e)
         {
             LoadTicketCounter();
+        }
+
+        private void inventoryButton_Click(object sender, EventArgs e)
+        {
+            InventoryForm form = new InventoryForm(userID);
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
         }
     }
 }

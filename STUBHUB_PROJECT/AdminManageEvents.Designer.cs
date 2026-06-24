@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminManageEvents));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.buttonDeleteEvent = new System.Windows.Forms.Button();
             this.buttonEditEvent = new System.Windows.Forms.Button();
             this.buttonAddEvent = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.dataGridViewEvents = new System.Windows.Forms.DataGridView();
             this.buttonManageTickets = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 817);
             this.panel1.TabIndex = 1;
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.BackColor = System.Drawing.Color.Navy;
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClose.ForeColor = System.Drawing.Color.AliceBlue;
+            this.buttonClose.Location = new System.Drawing.Point(38, 579);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(307, 74);
+            this.buttonClose.TabIndex = 4;
+            this.buttonClose.Text = "Close";
+            this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // buttonDeleteEvent
             // 
@@ -154,21 +169,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Events List";
             // 
-            // buttonClose
-            // 
-            this.buttonClose.BackColor = System.Drawing.Color.Navy;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClose.ForeColor = System.Drawing.Color.AliceBlue;
-            this.buttonClose.Location = new System.Drawing.Point(38, 579);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(307, 74);
-            this.buttonClose.TabIndex = 4;
-            this.buttonClose.Text = "Close";
-            this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
             // AdminManageEvents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -182,6 +182,7 @@
             this.Controls.Add(this.dataGridViewEvents);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdminManageEvents";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminManageEvents";

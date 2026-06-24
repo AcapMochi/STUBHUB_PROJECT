@@ -63,6 +63,16 @@ namespace STUBHUB_PROJECT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Checkout_Form {
+            get {
+                object obj = ResourceManager.GetObject("Checkout Form", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap My_Cart_Form {
             get {
                 object obj = ResourceManager.GetObject("My Cart Form", resourceCulture);
@@ -76,6 +86,66 @@ namespace STUBHUB_PROJECT.Properties {
         internal static System.Drawing.Bitmap My_Cart_Form__1_ {
             get {
                 object obj = ResourceManager.GetObject("My Cart Form (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Payment_Form {
+            get {
+                object obj = ResourceManager.GetObject("Payment Form", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Payment_Form__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Payment Form (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Payment_Form__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Payment Form (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Payment_Form__3_ {
+            get {
+                object obj = ResourceManager.GetObject("Payment Form (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Payment_Form1 {
+            get {
+                object obj = ResourceManager.GetObject("Payment Form1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap qr {
+            get {
+                object obj = ResourceManager.GetObject("qr", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

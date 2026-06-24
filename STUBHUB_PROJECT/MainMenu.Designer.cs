@@ -33,7 +33,7 @@
             this.FindTicketButton = new System.Windows.Forms.Button();
             this.DateButton = new System.Windows.Forms.Button();
             this.ChooseEventButton = new System.Windows.Forms.Button();
-            this.buttonCart = new System.Windows.Forms.Button();
+            this.inventoryButton = new System.Windows.Forms.Button();
             this.dateTimePickerTicket = new System.Windows.Forms.DateTimePicker();
             this.comboBoxEvents = new System.Windows.Forms.ComboBox();
             this.buttonLogOut = new System.Windows.Forms.Button();
@@ -92,19 +92,21 @@
             this.ChooseEventButton.UseVisualStyleBackColor = true;
             this.ChooseEventButton.Click += new System.EventHandler(this.ChooseEventButton_Click);
             // 
-            // buttonCart
+            // inventoryButton
             // 
-            this.buttonCart.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCart.BackgroundImage")));
-            this.buttonCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCart.Location = new System.Drawing.Point(1093, 33);
-            this.buttonCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCart.Name = "buttonCart";
-            this.buttonCart.Size = new System.Drawing.Size(48, 34);
-            this.buttonCart.TabIndex = 21;
-            this.buttonCart.UseVisualStyleBackColor = false;
-            this.buttonCart.Click += new System.EventHandler(this.buttonCart_Click);
+            this.inventoryButton.BackColor = System.Drawing.Color.Transparent;
+            this.inventoryButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inventoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.inventoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryButton.ForeColor = System.Drawing.Color.White;
+            this.inventoryButton.Location = new System.Drawing.Point(1030, 33);
+            this.inventoryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inventoryButton.Name = "inventoryButton";
+            this.inventoryButton.Size = new System.Drawing.Size(111, 34);
+            this.inventoryButton.TabIndex = 21;
+            this.inventoryButton.Text = "Inventory";
+            this.inventoryButton.UseVisualStyleBackColor = false;
+            this.inventoryButton.Click += new System.EventHandler(this.buttonCart_Click);
             // 
             // dateTimePickerTicket
             // 
@@ -156,7 +158,7 @@
             this.labelTicketCounter.BackColor = System.Drawing.Color.Transparent;
             this.labelTicketCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTicketCounter.ForeColor = System.Drawing.Color.White;
-            this.labelTicketCounter.Location = new System.Drawing.Point(1061, 41);
+            this.labelTicketCounter.Location = new System.Drawing.Point(998, 38);
             this.labelTicketCounter.Name = "labelTicketCounter";
             this.labelTicketCounter.Size = new System.Drawing.Size(26, 29);
             this.labelTicketCounter.TabIndex = 27;
@@ -174,7 +176,7 @@
             this.Controls.Add(this.comboBoxEvents);
             this.Controls.Add(this.dateTimePickerTicket);
             this.Controls.Add(this.buttonLogOut);
-            this.Controls.Add(this.buttonCart);
+            this.Controls.Add(this.inventoryButton);
             this.Controls.Add(this.TicketPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -197,7 +199,7 @@
         private System.Windows.Forms.Button FindTicketButton;
         private System.Windows.Forms.Button DateButton;
         private System.Windows.Forms.Button ChooseEventButton;
-        private System.Windows.Forms.Button buttonCart;
+        private System.Windows.Forms.Button inventoryButton;
         private System.Windows.Forms.DateTimePicker dateTimePickerTicket;
         private System.Windows.Forms.ComboBox comboBoxEvents;
         private System.Windows.Forms.Button buttonLogOut;

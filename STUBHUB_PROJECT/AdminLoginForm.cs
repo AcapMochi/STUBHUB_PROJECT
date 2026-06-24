@@ -98,6 +98,7 @@ namespace STUBHUB_PROJECT
         {
             textBoxUsername.Text = "";
             textBoxPassword.Text = "";
+            isSwitchingForms = false;
         }
     }
 }

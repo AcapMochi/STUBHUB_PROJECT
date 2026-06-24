@@ -74,6 +74,9 @@ namespace STUBHUB_PROJECT
 
         private void AdminManageSubEvent_Load(object sender, EventArgs e)
         {
+            textBoxSubEventTitle.Clear();
+            dateTimePickerVenue.Value = DateTime.Now;
+
             LoadSubEvent();
             LoadComboBoxVenue();
         }

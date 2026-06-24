@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminTransactionsForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvTransactions = new System.Windows.Forms.DataGridView();
             this.btnRefundBooking = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,9 +43,10 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
+            this.dgvTransactions = new System.Windows.Forms.DataGridView();
             this.pnlStatsSummary.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,24 +56,11 @@
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label1.Location = new System.Drawing.Point(428, 113);
+            this.label1.Location = new System.Drawing.Point(428, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(604, 32);
             this.label1.TabIndex = 4;
             this.label1.Text = "Customer Booking and Transaction History";
-            // 
-            // dgvTransactions
-            // 
-            this.dgvTransactions.BackgroundColor = System.Drawing.Color.MidnightBlue;
-            this.dgvTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransactions.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvTransactions.Location = new System.Drawing.Point(434, 214);
-            this.dgvTransactions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvTransactions.Name = "dgvTransactions";
-            this.dgvTransactions.RowHeadersWidth = 51;
-            this.dgvTransactions.RowTemplate.Height = 24;
-            this.dgvTransactions.Size = new System.Drawing.Size(866, 188);
-            this.dgvTransactions.TabIndex = 5;
             // 
             // btnRefundBooking
             // 
@@ -81,7 +68,7 @@
             this.btnRefundBooking.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRefundBooking.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefundBooking.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnRefundBooking.Location = new System.Drawing.Point(577, 603);
+            this.btnRefundBooking.Location = new System.Drawing.Point(577, 602);
             this.btnRefundBooking.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRefundBooking.Name = "btnRefundBooking";
             this.btnRefundBooking.Size = new System.Drawing.Size(255, 55);
@@ -97,7 +84,7 @@
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExport.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.ForeColor = System.Drawing.Color.AliceBlue;
-            this.btnExport.Location = new System.Drawing.Point(903, 603);
+            this.btnExport.Location = new System.Drawing.Point(903, 602);
             this.btnExport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(166, 55);
@@ -194,7 +181,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(385, 817);
+            this.panel1.Size = new System.Drawing.Size(385, 818);
             this.panel1.TabIndex = 15;
             // 
             // buttonClose
@@ -212,6 +199,18 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // dgvTransactions
+            // 
+            this.dgvTransactions.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dgvTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransactions.Location = new System.Drawing.Point(433, 215);
+            this.dgvTransactions.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvTransactions.Name = "dgvTransactions";
+            this.dgvTransactions.RowHeadersWidth = 51;
+            this.dgvTransactions.RowTemplate.Height = 24;
+            this.dgvTransactions.Size = new System.Drawing.Size(867, 188);
+            this.dgvTransactions.TabIndex = 16;
+            // 
             // AdminTransactionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -219,7 +218,8 @@
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1339, 817);
+            this.ClientSize = new System.Drawing.Size(1339, 818);
+            this.Controls.Add(this.dgvTransactions);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlStatsSummary);
@@ -227,19 +227,19 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnRefundBooking);
-            this.Controls.Add(this.dgvTransactions);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AdminTransactionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdmiTransactionsForm";
             this.Load += new System.EventHandler(this.AdminTransactionsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.pnlStatsSummary.ResumeLayout(false);
             this.pnlStatsSummary.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,7 +247,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvTransactions;
         private System.Windows.Forms.Button btnRefundBooking;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label label2;
@@ -260,5 +259,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.DataGridView dgvTransactions;
     }
 }

@@ -123,6 +123,18 @@
     <Compile Include="AdminManageTickets.Designer.cs">
       <DependentUpon>AdminManageTickets.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutBillingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutBillingForm.Designer.cs">
+      <DependentUpon>CheckoutBillingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutForm.Designer.cs">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EventTicketForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +153,17 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyCart.cs">
+    <Compile Include="InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyCart.Designer.cs">
-      <DependentUpon>MyCart.cs</DependentUpon>
+    <Compile Include="InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentMethodForm.Designer.cs">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -184,6 +202,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ticket.cs" />
     <EmbeddedResource Include="AdminAddEvent.resx">
       <DependentUpon>AdminAddEvent.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +233,12 @@
     <EmbeddedResource Include="AdminManageTickets.resx">
       <DependentUpon>AdminManageTickets.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutBillingForm.resx">
+      <DependentUpon>CheckoutBillingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutForm.resx">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EventTicketForm.resx">
       <DependentUpon>EventTicketForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,8 +248,11 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyCart.resx">
-      <DependentUpon>MyCart.cs</DependentUpon>
+    <EmbeddedResource Include="InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentMethodForm.resx">
+      <DependentUpon>PaymentMethodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
@@ -262,6 +290,14 @@
   <ItemGroup>
     <None Include="Resources\My Cart Form %281%29.png" />
     <None Include="Resources\My Cart Form.png" />
+    <None Include="Resources\Payment Form.png" />
+    <None Include="Resources\Payment Form %281%29.png" />
+    <None Include="Resources\Payment Form1.png" />
+    <None Include="Resources\Payment Form %282%29.png" />
+    <None Include="Resources\Payment Form %283%29.png" />
+    <None Include="Resources\Checkout Form.png" />
+    <Content Include="Resources\qr.png" />
+    <None Include="Resources\qr1.png" />
     <Content Include="VibeCheckDatabase.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

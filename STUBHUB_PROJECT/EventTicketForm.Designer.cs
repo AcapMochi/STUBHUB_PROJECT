@@ -32,10 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanelTickets = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonSubtract = new System.Windows.Forms.Button();
+            this.labelCounter = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.ButtonGetNow = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.ButtonCheckout = new System.Windows.Forms.Button();
             this.pictureBoxVenue = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelSubEventVenue = new System.Windows.Forms.Label();
@@ -43,9 +45,9 @@
             this.labelSubEventTitle = new System.Windows.Forms.Label();
             this.labelEventTitle = new System.Windows.Forms.Label();
             this.pictureBoxSubEvent = new System.Windows.Forms.PictureBox();
-            this.buttonCart = new System.Windows.Forms.Button();
             this.labelEvent = new System.Windows.Forms.Label();
             this.labelTicketCounter = new System.Windows.Forms.Label();
+            this.inventoryButton = new System.Windows.Forms.Button();
             this.flowLayoutPanelTickets.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVenue)).BeginInit();
@@ -59,7 +61,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(396, 25);
+            this.label1.Size = new System.Drawing.Size(471, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "CE9 - KENNY DALGLISH UPPER TIER ";
             // 
@@ -69,85 +71,103 @@
             this.flowLayoutPanelTickets.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanelTickets.Controls.Add(this.panel2);
             this.flowLayoutPanelTickets.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelTickets.Location = new System.Drawing.Point(43, 249);
+            this.flowLayoutPanelTickets.Location = new System.Drawing.Point(48, 311);
             this.flowLayoutPanelTickets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelTickets.Name = "flowLayoutPanelTickets";
-            this.flowLayoutPanelTickets.Padding = new System.Windows.Forms.Padding(9, 0, 9, 8);
-            this.flowLayoutPanelTickets.Size = new System.Drawing.Size(587, 500);
+            this.flowLayoutPanelTickets.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
+            this.flowLayoutPanelTickets.Size = new System.Drawing.Size(660, 625);
             this.flowLayoutPanelTickets.TabIndex = 32;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.buttonAdd);
+            this.panel2.Controls.Add(this.buttonSubtract);
+            this.panel2.Controls.Add(this.labelCounter);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.ButtonGetNow);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(12, 2);
+            this.panel2.Location = new System.Drawing.Point(13, 2);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(552, 96);
+            this.panel2.Size = new System.Drawing.Size(621, 120);
             this.panel2.TabIndex = 24;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.Location = new System.Drawing.Point(552, 50);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(54, 51);
+            this.buttonAdd.TabIndex = 8;
+            this.buttonAdd.Text = "+";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonSubtract
+            // 
+            this.buttonSubtract.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubtract.Location = new System.Drawing.Point(441, 50);
+            this.buttonSubtract.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSubtract.Name = "buttonSubtract";
+            this.buttonSubtract.Size = new System.Drawing.Size(48, 51);
+            this.buttonSubtract.TabIndex = 7;
+            this.buttonSubtract.Text = "-";
+            this.buttonSubtract.UseVisualStyleBackColor = true;
+            // 
+            // labelCounter
+            // 
+            this.labelCounter.AutoSize = true;
+            this.labelCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCounter.Location = new System.Drawing.Point(505, 61);
+            this.labelCounter.Name = "labelCounter";
+            this.labelCounter.Size = new System.Drawing.Size(30, 32);
+            this.labelCounter.TabIndex = 6;
+            this.labelCounter.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(3, 25);
+            this.label3.Location = new System.Drawing.Point(3, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 20);
+            this.label3.Size = new System.Drawing.Size(140, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "RM1000 /each";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.comboBox1.Location = new System.Drawing.Point(428, 29);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 24);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "1 Ticket";
-            // 
-            // ButtonGetNow
-            // 
-            this.ButtonGetNow.BackColor = System.Drawing.Color.DarkGreen;
-            this.ButtonGetNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonGetNow.ForeColor = System.Drawing.Color.White;
-            this.ButtonGetNow.Location = new System.Drawing.Point(428, 56);
-            this.ButtonGetNow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonGetNow.Name = "ButtonGetNow";
-            this.ButtonGetNow.Size = new System.Drawing.Size(120, 38);
-            this.ButtonGetNow.TabIndex = 3;
-            this.ButtonGetNow.Text = "Get Now";
-            this.ButtonGetNow.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(424, 3);
+            this.label2.Location = new System.Drawing.Point(477, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 20);
+            this.label2.Size = new System.Drawing.Size(140, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "RM1000 /each";
+            // 
+            // ButtonCheckout
+            // 
+            this.ButtonCheckout.BackColor = System.Drawing.Color.DarkGreen;
+            this.ButtonCheckout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonCheckout.ForeColor = System.Drawing.Color.White;
+            this.ButtonCheckout.Location = new System.Drawing.Point(734, 801);
+            this.ButtonCheckout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonCheckout.Name = "ButtonCheckout";
+            this.ButtonCheckout.Size = new System.Drawing.Size(544, 85);
+            this.ButtonCheckout.TabIndex = 3;
+            this.ButtonCheckout.Text = "Checkout";
+            this.ButtonCheckout.UseVisualStyleBackColor = false;
+            this.ButtonCheckout.Click += new System.EventHandler(this.buttonCheckout_Click);
             // 
             // pictureBoxVenue
             // 
             this.pictureBoxVenue.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBoxVenue.Location = new System.Drawing.Point(652, 249);
+            this.pictureBoxVenue.Location = new System.Drawing.Point(734, 311);
             this.pictureBoxVenue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxVenue.Name = "pictureBoxVenue";
-            this.pictureBoxVenue.Size = new System.Drawing.Size(484, 373);
+            this.pictureBoxVenue.Size = new System.Drawing.Size(544, 466);
             this.pictureBoxVenue.TabIndex = 31;
             this.pictureBoxVenue.TabStop = false;
             // 
@@ -159,19 +179,19 @@
             this.panel1.Controls.Add(this.labelSubEventTitle);
             this.panel1.Controls.Add(this.labelEventTitle);
             this.panel1.Controls.Add(this.pictureBoxSubEvent);
-            this.panel1.Location = new System.Drawing.Point(43, 130);
+            this.panel1.Location = new System.Drawing.Point(48, 162);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1093, 102);
+            this.panel1.Size = new System.Drawing.Size(1230, 128);
             this.panel1.TabIndex = 30;
             // 
             // labelSubEventVenue
             // 
             this.labelSubEventVenue.AutoSize = true;
             this.labelSubEventVenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubEventVenue.Location = new System.Drawing.Point(316, 59);
+            this.labelSubEventVenue.Location = new System.Drawing.Point(356, 74);
             this.labelSubEventVenue.Name = "labelSubEventVenue";
-            this.labelSubEventVenue.Size = new System.Drawing.Size(281, 17);
+            this.labelSubEventVenue.Size = new System.Drawing.Size(314, 20);
             this.labelSubEventVenue.TabIndex = 4;
             this.labelSubEventVenue.Text = "Turf Moor Stadium,Burnley,United Kingdom";
             // 
@@ -179,9 +199,9 @@
             // 
             this.labelSubEventDate.AutoSize = true;
             this.labelSubEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubEventDate.Location = new System.Drawing.Point(316, 43);
+            this.labelSubEventDate.Location = new System.Drawing.Point(356, 54);
             this.labelSubEventDate.Name = "labelSubEventDate";
-            this.labelSubEventDate.Size = new System.Drawing.Size(258, 17);
+            this.labelSubEventDate.Size = new System.Drawing.Size(288, 20);
             this.labelSubEventDate.TabIndex = 3;
             this.labelSubEventDate.Text = "Saturday, 27 September 2026, 8:30 PM";
             // 
@@ -189,9 +209,9 @@
             // 
             this.labelSubEventTitle.AutoSize = true;
             this.labelSubEventTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubEventTitle.Location = new System.Drawing.Point(314, 23);
+            this.labelSubEventTitle.Location = new System.Drawing.Point(353, 29);
             this.labelSubEventTitle.Name = "labelSubEventTitle";
-            this.labelSubEventTitle.Size = new System.Drawing.Size(173, 20);
+            this.labelSubEventTitle.Size = new System.Drawing.Size(201, 25);
             this.labelSubEventTitle.TabIndex = 2;
             this.labelSubEventTitle.Text = "Burnley VS Arsenal";
             // 
@@ -199,9 +219,9 @@
             // 
             this.labelEventTitle.AutoSize = true;
             this.labelEventTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEventTitle.Location = new System.Drawing.Point(316, 7);
+            this.labelEventTitle.Location = new System.Drawing.Point(356, 9);
             this.labelEventTitle.Name = "labelEventTitle";
-            this.labelEventTitle.Size = new System.Drawing.Size(181, 17);
+            this.labelEventTitle.Size = new System.Drawing.Size(199, 20);
             this.labelEventTitle.TabIndex = 1;
             this.labelEventTitle.Text = "English Premier Leauge";
             // 
@@ -211,22 +231,9 @@
             this.pictureBoxSubEvent.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxSubEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxSubEvent.Name = "pictureBoxSubEvent";
-            this.pictureBoxSubEvent.Size = new System.Drawing.Size(310, 102);
+            this.pictureBoxSubEvent.Size = new System.Drawing.Size(349, 128);
             this.pictureBoxSubEvent.TabIndex = 0;
             this.pictureBoxSubEvent.TabStop = false;
-            // 
-            // buttonCart
-            // 
-            this.buttonCart.BackColor = System.Drawing.Color.Transparent;
-            this.buttonCart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonCart.BackgroundImage")));
-            this.buttonCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCart.Location = new System.Drawing.Point(1088, 31);
-            this.buttonCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCart.Name = "buttonCart";
-            this.buttonCart.Size = new System.Drawing.Size(48, 34);
-            this.buttonCart.TabIndex = 26;
-            this.buttonCart.UseVisualStyleBackColor = false;
             // 
             // labelEvent
             // 
@@ -234,9 +241,9 @@
             this.labelEvent.BackColor = System.Drawing.Color.Transparent;
             this.labelEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEvent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelEvent.Location = new System.Drawing.Point(398, 86);
+            this.labelEvent.Location = new System.Drawing.Point(448, 108);
             this.labelEvent.Name = "labelEvent";
-            this.labelEvent.Size = new System.Drawing.Size(417, 42);
+            this.labelEvent.Size = new System.Drawing.Size(488, 52);
             this.labelEvent.TabIndex = 29;
             this.labelEvent.Text = "World Cup 2026 Tickets";
             this.labelEvent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -247,26 +254,44 @@
             this.labelTicketCounter.BackColor = System.Drawing.Color.Transparent;
             this.labelTicketCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTicketCounter.ForeColor = System.Drawing.Color.White;
-            this.labelTicketCounter.Location = new System.Drawing.Point(1056, 39);
+            this.labelTicketCounter.Location = new System.Drawing.Point(1117, 46);
             this.labelTicketCounter.Name = "labelTicketCounter";
-            this.labelTicketCounter.Size = new System.Drawing.Size(26, 29);
-            this.labelTicketCounter.TabIndex = 33;
+            this.labelTicketCounter.Size = new System.Drawing.Size(30, 32);
+            this.labelTicketCounter.TabIndex = 29;
             this.labelTicketCounter.Text = "0";
+            // 
+            // inventoryButton
+            // 
+            this.inventoryButton.BackColor = System.Drawing.Color.Transparent;
+            this.inventoryButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inventoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.inventoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryButton.ForeColor = System.Drawing.Color.White;
+            this.inventoryButton.Location = new System.Drawing.Point(1153, 40);
+            this.inventoryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.inventoryButton.Name = "inventoryButton";
+            this.inventoryButton.Size = new System.Drawing.Size(125, 42);
+            this.inventoryButton.TabIndex = 28;
+            this.inventoryButton.Text = "Inventory";
+            this.inventoryButton.UseVisualStyleBackColor = false;
+            this.inventoryButton.Click += new System.EventHandler(this.inventoryButton_Click);
             // 
             // EventTicketForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1190, 763);
-            this.Controls.Add(this.labelTicketCounter);
+            this.ClientSize = new System.Drawing.Size(1339, 954);
             this.Controls.Add(this.flowLayoutPanelTickets);
+            this.Controls.Add(this.labelTicketCounter);
+            this.Controls.Add(this.ButtonCheckout);
             this.Controls.Add(this.pictureBoxVenue);
+            this.Controls.Add(this.inventoryButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelEvent);
-            this.Controls.Add(this.buttonCart);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EventTicketForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -290,19 +315,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTickets;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button ButtonGetNow;
+        private System.Windows.Forms.Button ButtonCheckout;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxVenue;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBoxSubEvent;
-        private System.Windows.Forms.Button buttonCart;
         private System.Windows.Forms.Label labelEventTitle;
         private System.Windows.Forms.Label labelSubEventVenue;
         private System.Windows.Forms.Label labelSubEventDate;
         private System.Windows.Forms.Label labelSubEventTitle;
         private System.Windows.Forms.Label labelEvent;
-        private System.Windows.Forms.Label labelTicketCounter;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTicketCounter;
+        private System.Windows.Forms.Button inventoryButton;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonSubtract;
+        private System.Windows.Forms.Label labelCounter;
     }
 }

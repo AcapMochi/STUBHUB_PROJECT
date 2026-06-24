@@ -150,6 +150,7 @@
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonConfirm);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdminChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminChangePassword";

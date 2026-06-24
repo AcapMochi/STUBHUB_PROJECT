@@ -47,7 +47,7 @@ namespace STUBHUB_PROJECT
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT ISNULL(SUM(oi.Quantity), 0) FROM OrderItems oi INNER JOIN Orders o ON oi.OrderID = o.OrderID WHERE o.UserID = @UserID AND o.OrderStatus = 'Pending'";
+                string query = "SELECT ISNULL(SUM(oi.Quantity), 0) FROM OrderItems oi INNER JOIN Orders o ON oi.OrderID = o.OrderID WHERE o.UserID = @UserID AND o.OrderStatus = 'Paid'";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -72,6 +72,7 @@ namespace STUBHUB_PROJECT
         {
             LoadTicketCounter();
             LoadEvents();
+            dateTimePickerTicket.Value = DateTime.Now;
         }
 
         private void ChooseEventButton_Click(object sender, EventArgs e)
@@ -86,7 +87,7 @@ namespace STUBHUB_PROJECT
 
         private void FindTicketButton_Click(object sender, EventArgs e)
         {
-            if (comboBoxEvents.Text == null)
+            if (comboBoxEvents.Visible == false || comboBoxEvents.SelectedItem == null )
             {
                 MessageBox.Show("Select an Event.");
                 return;
@@ -117,7 +118,7 @@ namespace STUBHUB_PROJECT
                 }
             }
 
-            EventForm form = new EventForm(this, index, title, userID);
+            EventForm form = new EventForm(this, index, title, userID, dateTimePickerTicket.Value.Date);
             this.Hide();
             form.ShowDialog();
         }
@@ -143,9 +144,10 @@ namespace STUBHUB_PROJECT
 
         private void buttonCart_Click(object sender, EventArgs e)
         {
-            MyCart form = new MyCart(userID, this);
+            InventoryForm form = new InventoryForm(userID);
             this.Hide();
             form.ShowDialog();
+            this.Show();
         }
     }
 }
