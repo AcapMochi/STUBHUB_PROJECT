@@ -99,5 +99,10 @@ namespace STUBHUB_PROJECT
             this.Close();
             profileForm.Show();
         }
+
+        private void AdminChangePassword_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

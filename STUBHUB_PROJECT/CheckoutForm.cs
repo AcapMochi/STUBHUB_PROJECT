@@ -171,10 +171,11 @@ namespace STUBHUB_PROJECT
                 {
                     try
                     {
+                        // 1. Create the Order
                         string insertOrderQuery = @"
-                    INSERT INTO Orders (UserID, TotalAmount, BillingName, OrderStatus) 
-                    VALUES (@UserID, @TotalAmount, @BillingName, 'Paid');
-                    SELECT SCOPE_IDENTITY();";
+            INSERT INTO Orders (UserID, TotalAmount, BillingName, OrderStatus) 
+            VALUES (@UserID, @TotalAmount, @BillingName, 'Paid');
+            SELECT SCOPE_IDENTITY();";
 
                         int newOrderID;
 
@@ -187,31 +188,45 @@ namespace STUBHUB_PROJECT
                             newOrderID = Convert.ToInt32(orderCmd.ExecuteScalar());
                         }
 
+                        // 2. Insert Order Items AND Deduct Seats
                         string insertItemQuery = @"
-                    INSERT INTO OrderItems (OrderID, TierID, Quantity, PriceAtPurchase) 
-                    VALUES (@OrderID, @TierID, @Quantity, @PriceAtPurchase);";
+            INSERT INTO OrderItems (OrderID, TierID, Quantity, PriceAtPurchase) 
+            VALUES (@OrderID, @TierID, @Quantity, @PriceAtPurchase);";
+
+                        // Updated to match your schema: Add to SeatsSold instead of subtracting
+                        string updateSeatsQuery = @"
+    UPDATE TicketTiers 
+    SET SeatsSold = ISNULL(SeatsSold, 0) + @Quantity 
+    WHERE TierID = @TierID;";
 
                         using (SqlCommand itemCmd = new SqlCommand(insertItemQuery, conn, transaction))
+                        using (SqlCommand updateCmd = new SqlCommand(updateSeatsQuery, conn, transaction)) // Added command for updating seats
                         {
                             foreach (Ticket ticket in selectedTickets)
                             {
                                 if (ticket.Quantity > 0)
                                 {
+                                    // Insert into OrderItems
                                     itemCmd.Parameters.Clear();
-
                                     itemCmd.Parameters.AddWithValue("@OrderID", newOrderID);
                                     itemCmd.Parameters.AddWithValue("@TierID", ticket.TierID);
                                     itemCmd.Parameters.AddWithValue("@Quantity", ticket.Quantity);
                                     itemCmd.Parameters.AddWithValue("@PriceAtPurchase", ticket.Price);
-
                                     itemCmd.ExecuteNonQuery();
+
+                                    // Update available seats
+                                    updateCmd.Parameters.Clear();
+                                    updateCmd.Parameters.AddWithValue("@Quantity", ticket.Quantity);
+                                    updateCmd.Parameters.AddWithValue("@TierID", ticket.TierID);
+                                    updateCmd.ExecuteNonQuery();
                                 }
                             }
                         }
 
+                        // 3. Insert Payment Details
                         string insertPaymentQuery = @"
-                    INSERT INTO Payments (OrderID, PaymentMethod, TransactionRef, PaymentStatus) 
-                    VALUES (@OrderID, @PaymentMethod, @TransactionRef, 'Paid');";
+            INSERT INTO Payments (OrderID, PaymentMethod, TransactionRef, PaymentStatus) 
+            VALUES (@OrderID, @PaymentMethod, @TransactionRef, 'Paid');";
 
                         using (SqlCommand paymentCmd = new SqlCommand(insertPaymentQuery, conn, transaction))
                         {
@@ -224,6 +239,7 @@ namespace STUBHUB_PROJECT
                             paymentCmd.ExecuteNonQuery();
                         }
 
+                        // 4. Commit all changes to the database
                         transaction.Commit();
 
                         MessageBox.Show("Payment Successful! Your tickets have been booked.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -233,6 +249,7 @@ namespace STUBHUB_PROJECT
                     }
                     catch (Exception ex)
                     {
+                        // If anything fails (including the seat deduction), rollback everything
                         transaction.Rollback();
                         MessageBox.Show("An error occurred while processing your order: " + ex.Message, "Checkout Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

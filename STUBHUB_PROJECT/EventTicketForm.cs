@@ -47,12 +47,15 @@ namespace STUBHUB_PROJECT
             public string TierName { get; private set; }
             public decimal Price { get; private set; }
             public int Quantity { get; private set; } = 0;
+            public int AvailableSeats { get; private set; } // Added property
 
-            public Panel CreateTicketPanel(int id, string name, decimal price)
+            // Added 'int availableSeats' to the parameters
+            public Panel CreateTicketPanel(int id, string name, decimal price, int availableSeats)
             {
                 this.TierID = id;
                 this.TierName = name;
                 this.Price = price;
+                this.AvailableSeats = availableSeats;
 
                 panelTicket = new Panel();
                 panelTicket.Size = new Size(450, 90);
@@ -93,20 +96,51 @@ namespace STUBHUB_PROJECT
                 buttonAdd.Size = new Size(35, 35);
                 buttonAdd.Location = new Point(400, stepperY);
 
-                buttonAdd.Click += (s, e) =>
+                // LOGIC CHECK: Are there tickets available?
+                if (availableSeats <= 0)
                 {
-                    Quantity++;
-                    labelCounter.Text = Quantity.ToString();
-                };
+                    // Disable everything and show Sold Out
+                    buttonAdd.Enabled = false;
+                    buttonSubtract.Enabled = false;
 
-                buttonSubtract.Click += (s, e) =>
+                    labelCounter.Text = "Sold Out";
+                    labelCounter.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    labelCounter.ForeColor = Color.Red;
+                    labelCounter.AutoSize = true;
+                    labelCounter.Location = new Point(325, 35); // Adjust position since text is wider
+
+                    // Hide buttons to make it look cleaner
+                    buttonAdd.Visible = false;
+                    buttonSubtract.Visible = false;
+
+                    // Gray out the panel
+                    panelTicket.BackColor = Color.WhiteSmoke;
+                }
+                else
                 {
-                    if (Quantity > 0)
+                    // Normal behavior, but with an upper limit check
+                    buttonAdd.Click += (s, e) =>
                     {
-                        Quantity--;
-                        labelCounter.Text = Quantity.ToString();
-                    }
-                };
+                        if (Quantity < availableSeats)
+                        {
+                            Quantity++;
+                            labelCounter.Text = Quantity.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Only {availableSeats} tickets remaining for this tier.", "Limit Reached", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    };
+
+                    buttonSubtract.Click += (s, e) =>
+                    {
+                        if (Quantity > 0)
+                        {
+                            Quantity--;
+                            labelCounter.Text = Quantity.ToString();
+                        }
+                    };
+                }
 
                 panelTicket.Controls.Add(labelTicketName);
                 panelTicket.Controls.Add(labelPrice);
@@ -189,8 +223,8 @@ namespace STUBHUB_PROJECT
                         }
                     }
                 }
-                
-                string query2 = "SELECT TierID, TierName, Price FROM TicketTiers WHERE SubEventID = @SubEventID";
+
+                string query2 = "SELECT TierID, TierName, Price, TotalSeats, ISNULL(SeatsSold, 0) AS SeatsSold FROM TicketTiers WHERE SubEventID = @SubEventID";
                 using (SqlCommand cmd = new SqlCommand(query2, conn))
                 {
                     cmd.Parameters.AddWithValue("@SubEventID", int.Parse(currentSubEventID));
@@ -213,9 +247,16 @@ namespace STUBHUB_PROJECT
                             string tierName = reader["TierName"].ToString();
                             decimal price = Convert.ToDecimal(reader["Price"]);
 
+                            // Calculate available seats
+                            int totalSeats = Convert.ToInt32(reader["TotalSeats"]);
+                            int seatsSold = Convert.ToInt32(reader["SeatsSold"]);
+                            int availableSeats = totalSeats - seatsSold;
+
                             TicketTierCard ticketCard = new TicketTierCard();
-                            Panel newTierPanel = ticketCard.CreateTicketPanel(tierId, tierName, price);
-                            
+
+                            // Pass the availableSeats variable into the method!
+                            Panel newTierPanel = ticketCard.CreateTicketPanel(tierId, tierName, price, availableSeats);
+
                             activeTicketCards.Add(ticketCard);
                             flowLayoutPanelTickets.Controls.Add(newTierPanel);
                         }

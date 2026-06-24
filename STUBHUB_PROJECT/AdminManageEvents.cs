@@ -14,6 +14,7 @@ namespace STUBHUB_PROJECT
     public partial class AdminManageEvents : Form
     {
         private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True;";
+        private int selectedIndex = -1;
         public AdminManageEvents()
         {
             InitializeComponent();
@@ -56,6 +57,13 @@ namespace STUBHUB_PROJECT
 
         private void buttonEditEvent_Click(object sender, EventArgs e)
         {
+            // Keeping your initial validation
+            if (selectedIndex <= -1)
+            {
+                MessageBox.Show("Please select a transaction row from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (dataGridViewEvents.SelectedRows.Count > 0)
             {
                 int eventID = Convert.ToInt32(dataGridViewEvents.SelectedRows[0].Cells["EventID"].Value);
@@ -63,6 +71,7 @@ namespace STUBHUB_PROJECT
                 AdminAddEvent form = new AdminAddEvent(this, "Update", eventID);
                 this.Hide();
                 form.ShowDialog();
+                selectedIndex = -1;
             }
             else
             {
@@ -72,24 +81,31 @@ namespace STUBHUB_PROJECT
 
         private void buttonDeleteEvent_Click(object sender, EventArgs e)
         {
+            if (selectedIndex <= -1)
+            {
+                MessageBox.Show("Please select a transaction row from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (dataGridViewEvents.SelectedRows.Count > 0)
             {
                 int eventID = Convert.ToInt32(dataGridViewEvents.SelectedRows[0].Cells["EventID"].Value);
 
-                using (SqlConnection conn = new SqlConnection())
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    string query = "DELETE FROM SubEvents WHERE SubEventID = @SubEventID";
+                    string query = "DELETE FROM Events WHERE EventID = @EventID";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@SubEventID", eventID);
+                        cmd.Parameters.AddWithValue("@EventID", eventID);
 
-                        DialogResult result = MessageBox.Show($"Are you sure you want to delete the following SubEvent Entry?", "Delete Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult result = MessageBox.Show($"Are you sure you want to delete the following Event Entry?", "Delete Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (result == DialogResult.Yes)
                         {
                             conn.Open();
                             cmd.ExecuteNonQuery();
+                            selectedIndex = -1;
                         }
                     }
                 }
@@ -103,6 +119,12 @@ namespace STUBHUB_PROJECT
 
         private void buttonManageSubEvents_Click(object sender, EventArgs e)
         {
+            if (selectedIndex <= -1)
+            {
+                MessageBox.Show("Please select a transaction row from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (dataGridViewEvents.SelectedRows.Count > 0)
             {
                 int eventID = Convert.ToInt32(dataGridViewEvents.SelectedRows[0].Cells["EventID"].Value);
@@ -125,6 +147,11 @@ namespace STUBHUB_PROJECT
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridViewEvents_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedIndex = e.RowIndex;
         }
     }
 }

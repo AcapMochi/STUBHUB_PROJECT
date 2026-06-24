@@ -50,7 +50,7 @@ namespace STUBHUB_PROJECT
                         if (reader.Read())
                         {
                             textBoxTitle.Text = reader["Title"].ToString();
-                            textBoxCategory.Text = reader["Category"].ToString();
+                            comboBoxCategory.Text = reader["Category"].ToString();
                             textBoxDescription.Text = reader["Description"].ToString();
 
                             // Safely load the image if it exists
@@ -93,7 +93,7 @@ namespace STUBHUB_PROJECT
         private void buttonUploadEvent_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBoxTitle.Text) ||
-                string.IsNullOrWhiteSpace(textBoxCategory.Text) ||
+                string.IsNullOrWhiteSpace(comboBoxCategory.Text) ||
                 string.IsNullOrWhiteSpace(textBoxDescription.Text))
             {
                 MessageBox.Show("Please fill in the title, category, and description before uploading.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -135,7 +135,7 @@ namespace STUBHUB_PROJECT
                     cmd.CommandTimeout = 120;
 
                     cmd.Parameters.AddWithValue("@Title", textBoxTitle.Text);
-                    cmd.Parameters.AddWithValue("@Category", textBoxCategory.Text);
+                    cmd.Parameters.AddWithValue("@Category", comboBoxCategory.Text);
                     cmd.Parameters.AddWithValue("@Description", textBoxDescription.Text);
                     cmd.Parameters.AddWithValue("@ImageData", finalImageBytes);
 
@@ -152,6 +152,33 @@ namespace STUBHUB_PROJECT
             string successMessage = constraintMode == "Add" ? "Upload successful!" : "Update successful!";
             MessageBox.Show(successMessage, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        private void LoadComboBoxCategories()
+        {
+            comboBoxCategory.Items.Clear();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT DISTINCT Category FROM Events";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            comboBoxCategory.Items.Add(reader["Category"].ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        private void AdminAddEvent_Load(object sender, EventArgs e)
+        {
+            LoadComboBoxCategories();
+            LoadEventData();
         }
     }
 }

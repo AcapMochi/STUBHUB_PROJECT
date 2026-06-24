@@ -14,7 +14,7 @@ namespace STUBHUB_PROJECT
 {
     public partial class EventForm : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\VibeCheckDatabase.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\slayn\OneDrive\Desktop\tub\STUBHUB_PROJECT\STUBHUB_PROJECT\bin\Debug\VibeCheckDatabase.mdf;Integrated Security=True";
         MainMenu form = null;
         string SelectedItem = null;
         string Title = null;

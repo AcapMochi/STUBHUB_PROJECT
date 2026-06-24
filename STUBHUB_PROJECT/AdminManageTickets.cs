@@ -138,6 +138,12 @@ namespace STUBHUB_PROJECT
                 MessageBox.Show("Please enter a Tier Name for the sub-event.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (comboBoxTicketLevel.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a Tier Level from the dropdown.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(textBoxPrice.Text))
             {
                 MessageBox.Show("Please enter a Price for the ticket.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);

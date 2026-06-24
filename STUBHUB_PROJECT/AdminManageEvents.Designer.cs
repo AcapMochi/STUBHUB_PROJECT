@@ -141,6 +141,7 @@
             this.dataGridViewEvents.RowTemplate.Height = 28;
             this.dataGridViewEvents.Size = new System.Drawing.Size(831, 419);
             this.dataGridViewEvents.TabIndex = 2;
+            this.dataGridViewEvents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEvents_CellClick);
             // 
             // buttonManageTickets
             // 

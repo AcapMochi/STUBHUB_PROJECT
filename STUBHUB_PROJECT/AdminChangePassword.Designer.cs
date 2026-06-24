@@ -154,6 +154,7 @@
             this.Name = "AdminChangePassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminChangePassword";
+            this.Load += new System.EventHandler(this.AdminChangePassword_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

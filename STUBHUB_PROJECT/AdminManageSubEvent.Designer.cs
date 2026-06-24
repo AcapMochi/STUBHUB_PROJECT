@@ -110,13 +110,13 @@
             // 
             // comboBoxVenue
             // 
+            this.comboBoxVenue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxVenue.FormattingEnabled = true;
             this.comboBoxVenue.Location = new System.Drawing.Point(41, 130);
             this.comboBoxVenue.Name = "comboBoxVenue";
             this.comboBoxVenue.Size = new System.Drawing.Size(445, 33);
             this.comboBoxVenue.TabIndex = 17;
-            this.comboBoxVenue.Text = "Venue";
             // 
             // label5
             // 
@@ -131,6 +131,7 @@
             // 
             // comboBoxStatus
             // 
+            this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxStatus.FormattingEnabled = true;
             this.comboBoxStatus.Items.AddRange(new object[] {
@@ -141,7 +142,6 @@
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(445, 33);
             this.comboBoxStatus.TabIndex = 15;
-            this.comboBoxStatus.Text = "Scheduled";
             // 
             // label3
             // 

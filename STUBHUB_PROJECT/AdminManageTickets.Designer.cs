@@ -190,6 +190,7 @@
             // 
             // comboBoxSubEventID
             // 
+            this.comboBoxSubEventID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSubEventID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSubEventID.FormattingEnabled = true;
             this.comboBoxSubEventID.Location = new System.Drawing.Point(40, 148);
@@ -212,6 +213,7 @@
             // 
             // comboBoxEventID
             // 
+            this.comboBoxEventID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEventID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxEventID.FormattingEnabled = true;
             this.comboBoxEventID.Location = new System.Drawing.Point(40, 80);
@@ -249,6 +251,7 @@
             // 
             // comboBoxTicketLevel
             // 
+            this.comboBoxTicketLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTicketLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTicketLevel.FormattingEnabled = true;
             this.comboBoxTicketLevel.Items.AddRange(new object[] {

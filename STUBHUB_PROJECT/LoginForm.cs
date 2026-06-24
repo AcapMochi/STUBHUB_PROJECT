@@ -98,5 +98,10 @@ namespace STUBHUB_PROJECT
             this.Hide();
             form.ShowDialog();
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

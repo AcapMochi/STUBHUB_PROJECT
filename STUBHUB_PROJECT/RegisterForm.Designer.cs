@@ -50,20 +50,20 @@
             this.panel1.Controls.Add(this.TextBoxFullName);
             this.panel1.Controls.Add(this.TextBoxUsername);
             this.panel1.Controls.Add(this.RegisterLabel);
-            this.panel1.Location = new System.Drawing.Point(270, 110);
+            this.panel1.Location = new System.Drawing.Point(304, 138);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(642, 481);
+            this.panel1.Size = new System.Drawing.Size(722, 601);
             this.panel1.TabIndex = 0;
             // 
             // RegisterButton
             // 
             this.RegisterButton.BackColor = System.Drawing.Color.Silver;
             this.RegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegisterButton.Location = new System.Drawing.Point(29, 365);
+            this.RegisterButton.Location = new System.Drawing.Point(33, 456);
             this.RegisterButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(586, 52);
+            this.RegisterButton.Size = new System.Drawing.Size(659, 65);
             this.RegisterButton.TabIndex = 9;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = false;
@@ -73,10 +73,10 @@
             // 
             this.TextBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxPassword.Location = new System.Drawing.Point(45, 310);
+            this.TextBoxPassword.Location = new System.Drawing.Point(51, 388);
             this.TextBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxPassword.Name = "TextBoxPassword";
-            this.TextBoxPassword.Size = new System.Drawing.Size(557, 23);
+            this.TextBoxPassword.Size = new System.Drawing.Size(627, 28);
             this.TextBoxPassword.TabIndex = 8;
             this.TextBoxPassword.Text = "Password";
             // 
@@ -84,10 +84,10 @@
             // 
             this.TextBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxEmail.Location = new System.Drawing.Point(45, 244);
+            this.TextBoxEmail.Location = new System.Drawing.Point(51, 305);
             this.TextBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxEmail.Name = "TextBoxEmail";
-            this.TextBoxEmail.Size = new System.Drawing.Size(557, 23);
+            this.TextBoxEmail.Size = new System.Drawing.Size(627, 28);
             this.TextBoxEmail.TabIndex = 7;
             this.TextBoxEmail.Text = "Email";
             // 
@@ -95,10 +95,10 @@
             // 
             this.TextBoxFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBoxFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxFullName.Location = new System.Drawing.Point(45, 173);
+            this.TextBoxFullName.Location = new System.Drawing.Point(51, 216);
             this.TextBoxFullName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxFullName.Name = "TextBoxFullName";
-            this.TextBoxFullName.Size = new System.Drawing.Size(557, 23);
+            this.TextBoxFullName.Size = new System.Drawing.Size(627, 28);
             this.TextBoxFullName.TabIndex = 6;
             this.TextBoxFullName.Text = "Full Name";
             // 
@@ -106,10 +106,10 @@
             // 
             this.TextBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TextBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxUsername.Location = new System.Drawing.Point(45, 106);
+            this.TextBoxUsername.Location = new System.Drawing.Point(51, 132);
             this.TextBoxUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxUsername.Name = "TextBoxUsername";
-            this.TextBoxUsername.Size = new System.Drawing.Size(557, 23);
+            this.TextBoxUsername.Size = new System.Drawing.Size(627, 28);
             this.TextBoxUsername.TabIndex = 5;
             this.TextBoxUsername.Text = "Username";
             // 
@@ -118,9 +118,9 @@
             this.RegisterLabel.AutoSize = true;
             this.RegisterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegisterLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.RegisterLabel.Location = new System.Drawing.Point(159, 438);
+            this.RegisterLabel.Location = new System.Drawing.Point(179, 548);
             this.RegisterLabel.Name = "RegisterLabel";
-            this.RegisterLabel.Size = new System.Drawing.Size(304, 25);
+            this.RegisterLabel.Size = new System.Drawing.Size(364, 29);
             this.RegisterLabel.TabIndex = 4;
             this.RegisterLabel.Text = "Already have an account? Sign in";
             this.RegisterLabel.Click += new System.EventHandler(this.label1_Click);
@@ -129,11 +129,11 @@
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1190, 654);
+            this.ClientSize = new System.Drawing.Size(1339, 818);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -142,6 +142,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);
+            this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

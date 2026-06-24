@@ -39,9 +39,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxCategory = new System.Windows.Forms.TextBox();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.comboBoxCategory);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonUploadEvent);
             this.panel1.Controls.Add(this.buttonUploadImage);
@@ -68,7 +69,6 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textBoxDescription);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBoxCategory);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxTitle);
             this.panel1.Location = new System.Drawing.Point(45, 83);
@@ -161,14 +161,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Event Category";
             // 
-            // textBoxCategory
-            // 
-            this.textBoxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCategory.Location = new System.Drawing.Point(41, 138);
-            this.textBoxCategory.Name = "textBoxCategory";
-            this.textBoxCategory.Size = new System.Drawing.Size(445, 30);
-            this.textBoxCategory.TabIndex = 2;
-            // 
             // textBoxTitle
             // 
             this.textBoxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -180,6 +172,15 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // comboBoxCategory
+            // 
+            this.comboBoxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Location = new System.Drawing.Point(41, 138);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(445, 33);
+            this.comboBoxCategory.TabIndex = 11;
             // 
             // AdminAddEvent
             // 
@@ -195,6 +196,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAddEvent";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminAddEvent_FormClosed);
+            this.Load += new System.EventHandler(this.AdminAddEvent_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
@@ -214,8 +216,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxCategory;
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox comboBoxCategory;
     }
 }

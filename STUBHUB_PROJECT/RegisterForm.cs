@@ -40,13 +40,25 @@ namespace STUBHUB_PROJECT
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             if (TextBoxUsername.Text.Length <= 0 || TextBoxUsername.Text == "Username")
+            {
                 MessageBox.Show("Enter Your Username.");
+                return;
+            }
             if (TextBoxFullName.Text.Length <= 0 || TextBoxFullName.Text == "Full Name")
+            {
                 MessageBox.Show("Enter your Full Name.");
+                return;
+            }
             if (TextBoxEmail.Text.Length <= 0 || TextBoxEmail.Text == "Email")
+            {
                 MessageBox.Show("Enter your Email.");
+                return;
+            }
             if (TextBoxPassword.Text.Length <= 0 || TextBoxPassword.Text == "Password")
+            {
                 MessageBox.Show("Enter your Password.");
+                return;
+            }
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -89,8 +101,12 @@ namespace STUBHUB_PROJECT
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-                Application.Exit();
+            loginform.Show();
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
