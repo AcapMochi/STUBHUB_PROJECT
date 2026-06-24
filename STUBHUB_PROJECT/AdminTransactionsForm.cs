@@ -92,14 +92,29 @@ namespace STUBHUB_PROJECT
                 }
             }
         }
-
         private void btnRefundBooking_Click(object sender, EventArgs e)
         {
+            // Check if at least one row is fully selected
             if (dgvTransactions.SelectedRows.Count > 0)
             {
-                int orderId = Convert.ToInt32(dgvTransactions.SelectedRows[0].Cells["Order ID"].Value);
+                DataGridViewRow selectedRow = dgvTransactions.SelectedRows[0];
 
-                DialogResult result = MessageBox.Show($"Are you sure you want to cancel and refund Order #{orderId}?", "Confirm Refund", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                // Safeguard 1: Ignore if they selected the blank empty row at the bottom
+                if (selectedRow.IsNewRow) return;
+
+                // Safeguard 2: Prevent double-refunding
+                string currentStatus = selectedRow.Cells["Payment Status"].Value?.ToString();
+                if (currentStatus == "Refunded")
+                {
+                    MessageBox.Show("This order has already been refunded. No further action is required.", "Already Refunded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Stop the code here
+                }
+
+                // Proceed with the refund prompt
+                int orderId = Convert.ToInt32(selectedRow.Cells["Order ID"].Value);
+                string customerName = selectedRow.Cells["Customer"].Value?.ToString();
+
+                DialogResult result = MessageBox.Show($"Are you sure you want to cancel and refund Order #{orderId} for {customerName}?", "Confirm Refund", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -108,7 +123,8 @@ namespace STUBHUB_PROJECT
             }
             else
             {
-                MessageBox.Show("Please select a transaction row from the grid first.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Friendly tip: Users sometimes click a single cell instead of the whole row.
+                MessageBox.Show("Please select an entire transaction row from the grid first (click the margin to the left of the row).", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void ExecuteRefund(int orderId)
@@ -124,15 +140,27 @@ namespace STUBHUB_PROJECT
                     using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@OrderID", orderId);
-                        cmd.ExecuteNonQuery();
-                    }
 
-                    MessageBox.Show("Order marked as Refunded successfully!", "Refund Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadTransactionHistory(); // Refresh grid view
+                        // Safeguard 3: Verify the database actually updated something
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Order marked as Refunded successfully!", "Refund Processed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Refresh grid view. This will ALSO re-trigger your LoadTransactionHistory math 
+                            // so the Live Sales Summary updates instantly!
+                            LoadTransactionHistory();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Could not find the payment record in the database. The refund failed.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Failed to process database refund update: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to process database refund update: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -148,60 +176,124 @@ namespace STUBHUB_PROJECT
             {
                 try
                 {
+                    PrintDocument printDoc = new PrintDocument();
+
+                    printDoc.DefaultPageSettings.Landscape = true;
+
+                    printDoc.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+
                     PrintPreviewDialog previewDialog = new PrintPreviewDialog();
-                    previewDialog.Document = printDocument1;
+                    previewDialog.Document = printDoc;
+                    previewDialog.Width = 800;
+                    previewDialog.Height = 600;
                     previewDialog.ShowDialog();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Printing Error: " + ex.Message);
+                    MessageBox.Show("Printing Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("No data available to print.");
+                MessageBox.Show("No data available to print.", "Empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
+
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
-            Font titleFont = new Font("Segoe UI", 18, FontStyle.Bold);
-            Font headerFont = new Font("Segoe UI", 11, FontStyle.Bold);
-            Font textFont = new Font("Segoe UI", 10, FontStyle.Regular);
 
-            g.DrawString("VIBECHECKS SYSTEM TRANSACTION LEDGER REPORT", titleFont, Brushes.DarkBlue, 50, 50);
-            g.DrawString("Generated Date: " + DateTime.Now.ToString("dd MMM yyyy, hh:mm tt"), textFont, Brushes.Gray, 50, 85);
-            g.DrawLine(Pens.Black, 50, 110, 750, 110);
+            Font titleFont = new Font("Segoe UI", 24, FontStyle.Bold);
+            Font subtitleFont = new Font("Segoe UI", 14, FontStyle.Bold);
+            Font boldText = new Font("Segoe UI", 10, FontStyle.Bold);
+            Font normalText = new Font("Segoe UI", 10, FontStyle.Regular);
+            Font smallText = new Font("Segoe UI", 8, FontStyle.Regular);
 
-            g.DrawString(lblTotalBookings.Text, headerFont, Brushes.Black, 50, 130);
-            g.DrawString(lblTotalRevenue.Text, headerFont, Brushes.DarkGreen, 400, 130);
-            g.DrawLine(Pens.LightGray, 50, 160, 750, 160);
+            SolidBrush darkBlueBrush = new SolidBrush(Color.FromArgb(0, 0, 139));
+            SolidBrush darkGreenBrush = new SolidBrush(Color.FromArgb(0, 100, 0));
+            Pen darkGreenPen = new Pen(Color.FromArgb(0, 100, 0), 3);
 
-            int yPos = 180;
-            g.DrawString("ID", headerFont, Brushes.Black, 50, yPos);
-            g.DrawString("Customer", headerFont, Brushes.Black, 120, yPos);
-            g.DrawString("Date", headerFont, Brushes.Black, 280, yPos);
-            g.DrawString("Amount", headerFont, Brushes.Black, 480, yPos);
-            g.DrawString("Status", headerFont, Brushes.Black, 620, yPos);
+            g.DrawRectangle(darkGreenPen, 30, 30, 765, 1100);
 
-            g.DrawLine(Pens.Black, 50, yPos + 25, 750, yPos + 25);
-            yPos += 35;
+            int currentY = 50;
+            int leftMargin = 50;
 
-            // Loop and draw transaction lines straight from data rows matrix onto paper
+            g.DrawString("VIBE CHECKS", titleFont, darkBlueBrush, leftMargin, currentY);
+            currentY += 40;
+            g.DrawString("Transaction Ledger & Revenue Statement", subtitleFont, Brushes.DimGray, leftMargin, currentY);
+            currentY += 35;
+
+            g.DrawString("Generated Date: " + DateTime.Now.ToString("dd MMM yyyy, hh:mm tt"), normalText, Brushes.Black, leftMargin, currentY);
+            currentY += 20;
+            g.DrawString("Event Reference: Stray Kids - New World (15 June 2026)", normalText, Brushes.Black, leftMargin, currentY);
+            currentY += 20;
+            g.DrawString("Venue: Mega Star Arena", normalText, Brushes.Black, leftMargin, currentY);
+            currentY += 35;
+
+            string ticketsCount = lblTotalBookings.Text.Replace("Tickets Issued: ", "").Trim();
+            string salesTotal = lblTotalRevenue.Text.Replace("Total Sales: RM ", "").Trim();
+
+            g.FillRectangle(Brushes.WhiteSmoke, leftMargin, currentY, 725, 75);
+            g.FillRectangle(darkGreenBrush, leftMargin, currentY, 5, 75); // Green accent stripe on the left
+
+            g.DrawString("TICKETS ISSUED", boldText, Brushes.DimGray, leftMargin + 25, currentY + 15);
+            g.DrawString(ticketsCount, new Font("Segoe UI", 18, FontStyle.Bold), darkGreenBrush, leftMargin + 25, currentY + 35);
+
+            g.DrawString("TOTAL SALES (RM)", boldText, Brushes.DimGray, leftMargin + 300, currentY + 15);
+            g.DrawString(salesTotal, new Font("Segoe UI", 18, FontStyle.Bold), darkGreenBrush, leftMargin + 300, currentY + 35);
+
+            currentY += 100;
+
+            g.FillRectangle(darkBlueBrush, leftMargin, currentY, 725, 30);
+
+            g.DrawString("Order ID", boldText, Brushes.White, leftMargin + 10, currentY + 5);
+            g.DrawString("Customer", boldText, Brushes.White, leftMargin + 110, currentY + 5);
+            g.DrawString("Booking Date", boldText, Brushes.White, leftMargin + 300, currentY + 5);
+
+            StringFormat rightAlign = new StringFormat();
+            rightAlign.Alignment = StringAlignment.Far;
+            g.DrawString("Amount (RM)", boldText, Brushes.White, leftMargin + 550, currentY + 5, rightAlign);
+
+            g.DrawString("Status", boldText, Brushes.White, leftMargin + 600, currentY + 5);
+
+            currentY += 40;
+
             foreach (DataGridViewRow row in dgvTransactions.Rows)
             {
                 if (row.IsNewRow) continue;
 
-                g.DrawString(row.Cells["Order ID"].Value?.ToString() ?? "", textFont, Brushes.Black, 50, yPos);
-                g.DrawString(row.Cells["Customer"].Value?.ToString() ?? "", textFont, Brushes.Black, 120, yPos);
-                g.DrawString(Convert.ToDateTime(row.Cells["Booking Date"].Value).ToString("dd/MM/yyyy"), textFont, Brushes.Black, 280, yPos);
-                g.DrawString("RM " + row.Cells["Total Paid (RM)"].Value?.ToString() ?? "0.00", textFont, Brushes.Black, 480, yPos);
-                g.DrawString(row.Cells["Payment Status"].Value?.ToString() ?? "", textFont, Brushes.Black, 620, yPos);
+                string orderId = row.Cells["Order ID"].Value?.ToString() ?? "";
+                string customer = row.Cells["Customer"].Value?.ToString() ?? "";
+                string date = Convert.ToDateTime(row.Cells["Booking Date"].Value).ToString("dd/MM/yyyy");
+                string amount = row.Cells["Total Paid (RM)"].Value?.ToString() ?? "0.00";
+                string status = row.Cells["Payment Status"].Value?.ToString() ?? "";
 
-                yPos += 25;
-                if (yPos > 1000) break; // Safeguard limit to fit exactly on an A4 page canvas space
+                g.DrawString(orderId, normalText, Brushes.Black, leftMargin + 10, currentY);
+
+                if (customer.Length > 20) customer = customer.Substring(0, 17) + "...";
+                g.DrawString(customer, normalText, Brushes.Black, leftMargin + 110, currentY);
+
+                g.DrawString(date, normalText, Brushes.Black, leftMargin + 300, currentY);
+
+                g.DrawString(amount, new Font("Courier New", 10, FontStyle.Regular), Brushes.Black, leftMargin + 550, currentY, rightAlign);
+
+                Brush statusBrush = (status == "Refunded") ? Brushes.Firebrick : darkGreenBrush;
+                g.DrawString(status, boldText, statusBrush, leftMargin + 600, currentY);
+
+                g.DrawLine(Pens.LightGray, leftMargin, currentY + 22, leftMargin + 725, currentY + 22);
+
+                currentY += 30;
+
+                if (currentY > 1030)
+                {
+                    g.DrawString("... (Additional rows omitted to fit single page)", normalText, Brushes.Gray, leftMargin, currentY + 10);
+                    break;
+                }
             }
+
+            g.DrawLine(Pens.Silver, leftMargin, 1080, leftMargin + 725, 1080);
+            g.DrawString("Report Reference: VC-REP-" + DateTime.Now.ToString("yyyyMMdd") + "-001", smallText, Brushes.Gray, leftMargin, 1085);
+            g.DrawString("Page 1 of 1", smallText, Brushes.Gray, leftMargin + 670, 1085);
         }
 
         private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
@@ -210,7 +302,6 @@ namespace STUBHUB_PROJECT
 
             if (dgvTransactions.DataSource is DataTable dt)
             {
-                // Rubric Trick: Using DataView row filters mimics advanced LINQ string matching!
                 dt.DefaultView.RowFilter = string.Format("Customer LIKE '%{0}%' OR Convert([Order ID], 'System.String') LIKE '%{0}%'", filterText);
             }
         }
