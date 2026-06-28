@@ -91,25 +91,31 @@ namespace STUBHUB_PROJECT
             {
                 int eventID = Convert.ToInt32(dataGridViewEvents.SelectedRows[0].Cells["EventID"].Value);
 
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                try
                 {
-                    string query = "DELETE FROM Events WHERE EventID = @EventID";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        cmd.Parameters.AddWithValue("@EventID", eventID);
+                        string query = "DELETE FROM Events WHERE EventID = @EventID";
 
-                        DialogResult result = MessageBox.Show($"Are you sure you want to delete the following Event Entry?", "Delete Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                        if (result == DialogResult.Yes)
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            conn.Open();
-                            cmd.ExecuteNonQuery();
-                            selectedIndex = -1;
+                            cmd.Parameters.AddWithValue("@EventID", eventID);
+
+                            DialogResult result = MessageBox.Show($"Are you sure you want to delete the following Event Entry?", "Delete Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                            if (result == DialogResult.Yes)
+                            {
+                                conn.Open();
+                                cmd.ExecuteNonQuery();
+                                selectedIndex = -1;
+                            }
                         }
                     }
+                } catch (Exception ex)
+                {
+                    MessageBox.Show("A database error occurred. It's likely this Event cannot be deleted because it has ticket tiers or orders linked to it.\n\nError details: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
             else
             {
